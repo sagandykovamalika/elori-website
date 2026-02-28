@@ -247,7 +247,7 @@ body {
   }
 
   .hero {
-    gap: 36px;
+    gap: 56px;
     min-height: 100svh;
     display: flex;
     flex-direction: column;
@@ -259,20 +259,15 @@ body {
     margin-bottom: 0;
     flex: 1 1 auto;
     align-self: stretch;
+    overflow: hidden;
   }
 
   .hero-visual img {
     width: 100%;
+    max-width: 100%;
     max-height: min(55svh, 420px);
     display: block;
     transform-origin: bottom center;
-  }
-
-  @media (min-height: 700px) {
-    .hero-visual img {
-      transform: scale(2);
-      max-height: 100%;
-    }
   }
 
   .hero-copy {
