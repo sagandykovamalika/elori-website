@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Metal&display=swap");
+
 :root {
   color-scheme: dark;
   --bg: #07090f;
@@ -12,24 +14,20 @@
   --ring: rgba(148, 163, 184, 0.3);
 }
 
-@font-face {
-  font-family: "Mamenchisa";
-  src: url("assets/fonts/Mamenchisa.otf") format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: #000;
+  font-family: "Metal", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: #181c14;
   color: var(--text);
   min-height: 100vh;
+}
+
+a {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 .page {
@@ -83,25 +81,24 @@ body {
 .subheader {
   color: var(--muted);
   font-size: 2.1rem;
-  line-height: 1.2;
+  line-height: 1.08;
   font-weight: 600;
   margin: 0;
   max-width: 420px;
   text-align: left;
+  text-wrap: balance;
 }
 
-.subheader .logo {
-  display: inline-block;
-  height: 0.9em;
+.hero-main .logo {
+  display: block;
+  height: 52px;
   width: auto;
-  vertical-align: text-bottom;
-  margin-right: 0;
-  transform: translateY(-0.12em);
+  margin: 0 0 -6px;
 }
 
 .subheader .brand {
-  color: var(--text);
-  font-family: "Mamenchisa", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #ecdfcc;
+  font-family: "Metal", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 .subheader .brand-dot {
@@ -114,14 +111,13 @@ body {
   text-decoration: none;
   width: fit-content;
   border-radius: 12px;
-  box-shadow: 0 18px 40px rgba(8, 10, 20, 0.6);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: none;
   align-self: flex-start;
+  margin-top: 16px;
 }
 
 .app-store:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 22px 48px rgba(8, 10, 20, 0.7);
+  transform: none;
 }
 
 .app-store-badge {
@@ -129,6 +125,11 @@ body {
   height: 56px;
   width: auto;
   border-radius: 12px;
+  transition: opacity 0.2s ease;
+}
+
+.app-store:hover .app-store-badge {
+  opacity: 0.72;
 }
 
 .app-store:focus-visible {
@@ -141,6 +142,7 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  pointer-events: none;
 }
 
 .hero-visual img {
@@ -170,10 +172,12 @@ body {
   justify-content: flex-start;
   font-size: 0.85rem;
   letter-spacing: 0.02em;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 .legal a {
   color: var(--link-muted);
+  font-size: 0.8rem;
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
@@ -191,6 +195,7 @@ body {
 
 .policy-page {
   color-scheme: dark;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 .policy {
@@ -233,46 +238,50 @@ body {
 }
 
 .policy-text a {
-  color: var(--accent);
+  color: #ecdfcc;
+  font-size: 0.95em;
 }
 
 .policy-text a:hover,
 .policy-text a:focus-visible {
-  color: var(--accent-strong);
+  color: #ecdfcc;
 }
 
 @media (max-width: 720px) {
+  body {
+    overflow: hidden;
+  }
+
   .page {
     padding: 48px 8vw 0;
+    min-height: 100svh;
+    height: 100svh;
+    overflow: hidden;
   }
 
   .hero {
     gap: 36px;
-    min-height: 100svh;
+    min-height: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
   }
 
   .hero-visual {
     align-items: flex-end;
     margin-top: auto;
     margin-bottom: 0;
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     align-self: stretch;
+    overflow: hidden;
   }
 
   .hero-visual img {
-    width: 100%;
-    max-height: min(55svh, 420px);
+    width: min(248%, 1240px);
+    max-height: min(128svh, 1240px);
     display: block;
     transform-origin: bottom center;
-  }
-
-  @media (min-height: 700px) {
-    .hero-visual img {
-      transform: scale(2);
-      max-height: 100%;
-    }
   }
 
   .hero-copy {
