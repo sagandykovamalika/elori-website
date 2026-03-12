@@ -21,6 +21,7 @@
 body {
   margin: 0;
   font-family: "Metal", system-ui, -apple-system, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
   background: #181c14;
   color: var(--text);
   min-height: 100vh;
