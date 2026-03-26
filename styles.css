@@ -109,16 +109,10 @@ a {
 .app-store {
   display: inline-flex;
   align-items: center;
-  text-decoration: none;
   width: fit-content;
   border-radius: 12px;
-  transition: none;
   align-self: flex-start;
   margin-top: 16px;
-}
-
-.app-store:hover {
-  transform: none;
 }
 
 .app-store-badge {
@@ -126,16 +120,6 @@ a {
   height: 56px;
   width: auto;
   border-radius: 12px;
-  transition: opacity 0.2s ease;
-}
-
-.app-store:hover .app-store-badge {
-  opacity: 0.72;
-}
-
-.app-store:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 4px;
 }
 
 .hero-visual {
