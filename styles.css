@@ -20,7 +20,7 @@
 
 body {
   margin: 0;
-  font-family: "Metal", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
   background: #181c14;
   color: var(--text);
@@ -83,30 +83,29 @@ a {
   color: var(--muted);
   font-size: 2.1rem;
   line-height: 1.08;
-  font-weight: 600;
+  font-weight: 400;
   margin: 0;
   max-width: 420px;
   text-align: left;
   text-wrap: balance;
 }
 
-.hero-main .logo {
-  display: block;
-  height: 52px;
-  width: auto;
-  margin: 0 0 -6px;
-}
-
 .subheader .brand {
+  display: block;
   color: #ecdfcc;
   font-family: "Metal", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.35em;
+  margin-bottom: 0.06em;
 }
 
-.subheader .brand-dot {
-  color: var(--muted);
+.subheader .tagline {
+  display: block;
+  font-size: 0.64em;
+  line-height: 1.15;
 }
 
 .app-store {
+  position: relative;
   display: inline-flex;
   align-items: center;
   width: fit-content;
@@ -120,6 +119,22 @@ a {
   height: 56px;
   width: auto;
   border-radius: 12px;
+}
+
+.app-store-badge-hover {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.app-store:hover .app-store-badge-default,
+.app-store:focus-within .app-store-badge-default {
+  opacity: 0;
+}
+
+.app-store:hover .app-store-badge-hover,
+.app-store:focus-within .app-store-badge-hover {
+  opacity: 1;
 }
 
 .hero-visual {
@@ -164,7 +179,8 @@ a {
   color: var(--link-muted);
   font-size: 0.8rem;
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(111, 111, 111, 0.45);
   text-decoration-thickness: 1px;
 }
 
@@ -263,11 +279,11 @@ a {
   }
 
   .hero-visual img {
-    width: 200%;
-    max-width: none;
+    width: min(100%, 420px);
+    max-width: 100%;
     max-height: none;
     display: block;
-    margin-left: -50%;
+    margin-inline: auto;
     transform-origin: bottom center;
   }
 
