@@ -181,7 +181,7 @@ a {
   text-decoration: underline;
   text-underline-offset: 2px;
   text-decoration-color: rgba(111, 111, 111, 0.45);
-  text-decoration-thickness: 0.5px;
+  text-decoration-thickness: 1px;
 }
 
 .legal a:hover {
