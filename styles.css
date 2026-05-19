@@ -224,9 +224,30 @@ a {
   margin: 28px 0 10px;
 }
 
+.faq-page .policy-text h2 {
+  font-size: 1.65rem;
+  font-weight: 400;
+  margin-top: 56px;
+}
+
+.faq-page .policy-text h1 + h2 {
+  margin-top: 28px;
+}
+
 .policy-text h3 {
   font-size: 1.1rem;
   margin: 18px 0 8px;
+}
+
+.faq-page .policy-text h3 {
+  border-top: 1px solid rgba(236, 223, 204, 0.18);
+  margin-bottom: 0;
+  padding-top: 18px;
+}
+
+.faq-page .policy-text h2 + h3 {
+  border-top: 0;
+  padding-top: 0;
 }
 
 .policy-text p {
