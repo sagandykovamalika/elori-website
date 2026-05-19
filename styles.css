@@ -224,9 +224,46 @@ a {
   margin: 28px 0 10px;
 }
 
+.faq-page .policy-text h2 {
+  align-items: center;
+  display: flex;
+  font-size: 1.65rem;
+  font-weight: 400;
+  gap: 10px;
+  margin-top: 56px;
+}
+
+.faq-icon {
+  color: #ecdfcc;
+  flex: 0 0 auto;
+  height: 1em;
+  width: 1em;
+}
+
+.faq-page .policy-text h1 + h2 {
+  margin-top: 28px;
+}
+
 .policy-text h3 {
   font-size: 1.1rem;
   margin: 18px 0 8px;
+}
+
+.faq-page .policy-text h3 {
+  border-top: 1px solid rgba(236, 223, 204, 0.18);
+  font-weight: 400;
+  margin-bottom: 6px;
+  padding-top: 18px;
+}
+
+.faq-page .policy-text h3 + p {
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.95rem;
+}
+
+.faq-page .policy-text h2 + h3 {
+  border-top: 0;
+  padding-top: 0;
 }
 
 .policy-text p {
