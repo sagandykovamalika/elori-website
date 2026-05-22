@@ -11,7 +11,7 @@
     <main class="policy">
       <div class="policy-text">
         <h1>Política de Privacidad</h1>
-        <p>Última actualización: 15 de febrero de 2026</p>
+        <p>Última actualización: 22 de mayo de 2026</p>
 
         <p>Elori ("nosotros", "nuestro" o "nos") está comprometido con la protección de su privacidad. Esta Política de Privacidad explica cómo se recopila, utiliza y divulga su información personal por parte de Elori. Esta Política de Privacidad se aplica a nuestro sitio web y sus subdominios asociados (en conjunto, nuestro "Servicio"), junto con nuestra aplicación, Elori. Al acceder o utilizar nuestro Servicio, usted confirma que ha leído, comprendido y acepta nuestra recopilación, almacenamiento, uso y divulgación de su información personal tal como se describe en esta Política de Privacidad y en nuestros Términos de Uso.</p>
 
@@ -26,14 +26,21 @@
         <h3>B. Información Recopilada Automáticamente</h3>
         <ul>
           <li>Información del Dispositivo: Podemos recopilar información sobre su dispositivo móvil, incluido el modelo de hardware, la versión del sistema operativo, identificadores únicos del dispositivo e información de la red móvil.</li>
-          <li>Datos de Uso: Recopilamos información anónima sobre cómo utiliza nuestra aplicación, como las funciones utilizadas y el tiempo dedicado a la aplicación, para ayudarnos a mejorar la experiencia del usuario.</li>
+          <li>Datos de Diagnóstico y Fallos: Utilizamos Firebase Crashlytics, un servicio de Google, para ayudarnos a comprender fallos de la aplicación, problemas de rendimiento y problemas de estabilidad. Los informes de fallos pueden incluir información del dispositivo y del sistema operativo, versión de la app, marcas de tiempo, trazas de fallos, identificadores de diagnóstico y datos técnicos relacionados necesarios para diagnosticar el problema.</li>
+          <li>Datos de Uso y Estado de la App: Podemos recopilar información limitada sobre la actividad y el estado de la app que sea necesaria para proporcionar, mantener, proteger y mejorar el Servicio.</li>
         </ul>
 
-        <h3>C. Acceso a la Biblioteca de Fotos</h3>
-        <p>Para proporcionar la funcionalidad principal de la aplicación (editar fotos y crear carruseles), necesitamos acceder a la biblioteca de fotos de su dispositivo.</p>
+        <h3>C. Contenido, Plantillas y Servicios de Firebase</h3>
+        <p>Elori utiliza servicios de Firebase y Google Cloud para entregar y operar partes de la App. Esto incluye configuraciones o registros de contenido respaldados por Firestore y recursos respaldados por Firebase Storage o Google Cloud Storage, como plantillas, ejemplos, imágenes u otro contenido de la app disponible dentro de Elori. Estos servicios pueden procesar información técnica de solicitudes, identificadores del dispositivo o de la app, marcas de tiempo, dirección IP y metadatos de entrega de contenido según sea necesario para proporcionar el contenido solicitado y mantener la App funcionando de forma fiable.</p>
+
+        <h3>D. Caché Local y UserDefaults</h3>
+        <p>Elori almacena cierta información localmente en su dispositivo mediante almacenamiento de la app, cachés y Apple UserDefaults. Esto puede incluir preferencias, estado de incorporación, estado de derechos o compras, metadatos de contenido cargado recientemente, recursos en caché y configuraciones que ayudan a la App a recordar sus elecciones y funcionar más rápido. Los datos locales permanecen en su dispositivo a menos que usted los elimine, iOS los borre o se eliminen al desinstalar la App.</p>
+
+        <h3>E. Acceso y Exportación a la Biblioteca de Fotos</h3>
+        <p>Para proporcionar la funcionalidad principal de la aplicación (editar fotos y crear carruseles), Elori puede solicitar acceso a fotos seleccionadas y permiso para guardar o exportar imágenes terminadas en la biblioteca de fotos de su dispositivo.</p>
         <ul>
-          <li>Procesamiento Local: Priorizamos su privacidad. Todo el procesamiento y la edición de fotos se realizan localmente en su dispositivo. No cargamos sus fotos en nuestros servidores ni en ningún almacenamiento en la nube de terceros, a menos que usted lo inicie explícitamente (por ejemplo, para funciones de compartir o copia de seguridad en la nube).</li>
-          <li>Permiso: Puede revocar el acceso a su biblioteca de fotos en cualquier momento en la configuración de su dispositivo, aunque esto limitará la funcionalidad de la Aplicación.</li>
+          <li>Procesamiento Local: Priorizamos su privacidad. Todo el procesamiento y la edición de fotos están diseñados para realizarse localmente en su dispositivo. No usamos sus fotos personales para entrenar modelos y no vemos su biblioteca de fotos.</li>
+          <li>Permiso de Exportación: Si elige guardar o exportar una creación, iOS puede pedir permiso para añadir la imagen exportada a su biblioteca de fotos. Puede revocar los permisos de fotos en cualquier momento en la configuración de su dispositivo, aunque esto puede limitar la funcionalidad de importación o exportación.</li>
         </ul>
 
         <h2>2. Cómo Utilizamos Su Información</h2>
@@ -43,34 +50,44 @@
           <li>Mejorar, personalizar y expandir nuestra Aplicación.</li>
           <li>Comprender y analizar cómo utiliza nuestra Aplicación.</li>
           <li>Procesar sus transacciones de suscripción (gestionadas a través de la App Store de Apple).</li>
+          <li>Entregar contenido, plantillas, configuración y recursos relacionados de la app.</li>
+          <li>Diagnosticar fallos, errores y problemas de rendimiento.</li>
           <li>Detectar y prevenir fraudes.</li>
           <li>Responder a sus comentarios, preguntas y proporcionar servicio al cliente.</li>
         </ul>
 
         <h2>3. Suscripciones y Pagos</h2>
-        <p>Nuestra Aplicación ofrece planes de suscripción de pago (por ejemplo, opciones Anuales y Semanales).</p>
+        <p>Nuestra Aplicación ofrece planes de suscripción de pago y una compra única de por vida a través del sistema de compras dentro de la app de Apple. Las ofertas actuales de StoreKit pueden incluir una suscripción semanal con una prueba gratuita de 3 días seguida de renovación semanal, una suscripción anual de renovación automática y una compra única de por vida.</p>
         <ul>
           <li>App Store de Apple: Todos los pagos se procesan a través de la App Store de Apple. No almacenamos ni recopilamos los datos de su tarjeta de pago. Esa información se proporciona directamente a Apple, cuyo uso de su información personal se rige por su Política de Privacidad.</li>
         </ul>
 
         <h2>4. Servicios de Terceros</h2>
-        <p>Podemos emplear empresas e individuos de terceros por las siguientes razones:</p>
+        <p>Utilizamos proveedores de servicios externos para operar, entregar, diagnosticar y mejorar el Servicio. Estos proveedores pueden procesar información para nosotros solo según sea necesario para proporcionar sus servicios.</p>
         <ul>
-          <li>Para facilitar nuestro Servicio;</li>
-          <li>Para proporcionar el Servicio en nuestro nombre;</li>
-          <li>Para realizar servicios relacionados con el Servicio (por ejemplo, análisis).</li>
+          <li>Servicios de Firebase y Google, incluidos Firebase Crashlytics, Firestore y Firebase Storage o Google Cloud Storage, para diagnósticos, configuración de la app, contenido respaldado por base de datos y entrega de contenido.</li>
+          <li>App Store de Apple y StoreKit para compras, suscripciones, pruebas, recibos, renovaciones, cancelaciones y reembolsos.</li>
         </ul>
 
         <h2>5. Retención de Datos</h2>
-        <p>Conservaremos su información solo durante el tiempo necesario para los fines establecidos en esta Política de Privacidad. Conservaremos y utilizaremos su información en la medida necesaria para cumplir con nuestras obligaciones legales, resolver disputas y hacer cumplir nuestras políticas.</p>
+        <p>Conservamos información solo durante el tiempo necesario para los fines descritos en esta Política de Privacidad, incluido proporcionar la App, mantener la entrega de contenido, diagnosticar fallos, cumplir obligaciones legales, resolver disputas y hacer cumplir nuestras políticas. La información de fallos y diagnóstico se conserva solo durante el tiempo necesario para fiabilidad, seguridad y soporte. El contenido alojado en Firebase y los registros de servicio relacionados pueden conservarse según nuestras necesidades operativas y las prácticas de retención de Google Firebase. Las cachés locales y UserDefaults permanecen en su dispositivo hasta que la App, iOS o usted los borren.</p>
+        <p>Puede solicitar la eliminación de la información personal que controlamos escribiéndonos a <a href="mailto:tryelori.com@gmail.com">tryelori.com@gmail.com</a>. Debido a que Elori no requiere una cuenta, es posible que necesitemos información de usted para localizar registros asociados con su solicitud. Las compras, suscripciones, reembolsos, registros de cancelación e historial de facturación son gestionados por Apple y pueden necesitar manejarse a través de su Apple ID o el Soporte de Apple.</p>
 
-        <h2>6. Privacidad de los Menores</h2>
+        <h2>6. Sus Opciones</h2>
+        <ul>
+          <li>Puede gestionar los permisos de la biblioteca de fotos en la configuración de iOS.</li>
+          <li>Puede borrar los datos almacenados localmente eliminando la App de su dispositivo.</li>
+          <li>Puede gestionar o cancelar suscripciones en la configuración de suscripciones de su Apple ID.</li>
+          <li>Puede contactarnos para solicitar acceso, corrección o eliminación de información personal que controlamos.</li>
+        </ul>
+
+        <h2>7. Privacidad de los Menores</h2>
         <p>No recopilamos intencionalmente información de identificación personal de menores de 13 años. Si usted es padre o tutor y tiene conocimiento de que su hijo nos ha proporcionado Datos Personales, comuníquese con nosotros.</p>
 
-        <h2>7. Cambios en esta Política de Privacidad</h2>
+        <h2>8. Cambios en esta Política de Privacidad</h2>
         <p>Podemos actualizar nuestra Política de Privacidad periódicamente. Le notificaremos cualquier cambio publicando la nueva Política de Privacidad en esta página. Se recomienda revisar esta Política de Privacidad de manera regular para estar al tanto de cualquier modificación.</p>
 
-        <h2>8. Contáctenos</h2>
+        <h2>9. Contáctenos</h2>
         <p>Si tiene alguna pregunta sobre esta Política de Privacidad, por favor contáctenos:</p>
         <ul>
           <li>Por correo electrónico: <a href="mailto:tryelori.com@gmail.com">tryelori.com@gmail.com</a></li>
