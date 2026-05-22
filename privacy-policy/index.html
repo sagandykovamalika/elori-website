@@ -5,26 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Elori Privacy Policy</title>
     <link rel="stylesheet" href="../styles.css" />
-    <script>
-      (() => {
-        const supportedLocales = new Set(["de", "es", "fr", "ru"]);
-        const redirectKey = "eloriLocaleRedirected:privacy-policy";
-
-        if (sessionStorage.getItem(redirectKey)) return;
-
-        const browserLocales = navigator.languages?.length
-          ? navigator.languages
-          : [navigator.language];
-        const locale = browserLocales
-          .map((language) => language.toLowerCase().split("-")[0])
-          .find((language) => supportedLocales.has(language));
-
-        if (!locale) return;
-
-        sessionStorage.setItem(redirectKey, "true");
-        window.location.replace(`/${locale}/privacy-policy/`);
-      })();
-    </script>
+    <script src="../assets/locale-redirect.js" data-locale-path="/privacy-policy/"></script>
   </head>
   <body class="policy-page">
     <main class="policy">

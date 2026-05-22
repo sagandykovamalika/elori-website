@@ -30,26 +30,7 @@
     <meta name="twitter:image" content="https://tryelori.com/assets/opengraph.png" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
-    <script>
-      (() => {
-        const supportedLocales = new Set(["de", "es", "fr", "ru"]);
-        const redirectKey = "eloriLocaleRedirected";
-
-        if (sessionStorage.getItem(redirectKey)) return;
-
-        const browserLocales = navigator.languages?.length
-          ? navigator.languages
-          : [navigator.language];
-        const locale = browserLocales
-          .map((language) => language.toLowerCase().split("-")[0])
-          .find((language) => supportedLocales.has(language));
-
-        if (!locale) return;
-
-        sessionStorage.setItem(redirectKey, "true");
-        window.location.replace(`/${locale}/`);
-      })();
-    </script>
+    <script src="assets/locale-redirect.js" data-locale-path="/"></script>
   </head>
   <body>
     <main class="page">

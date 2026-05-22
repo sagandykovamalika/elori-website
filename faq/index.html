@@ -10,26 +10,7 @@
     />
     <link rel="canonical" href="https://tryelori.com/faq" />
     <link rel="stylesheet" href="../styles.css" />
-    <script>
-      (() => {
-        const supportedLocales = new Set(["de", "es", "fr", "ru"]);
-        const redirectKey = "eloriLocaleRedirected:faq";
-
-        if (sessionStorage.getItem(redirectKey)) return;
-
-        const browserLocales = navigator.languages?.length
-          ? navigator.languages
-          : [navigator.language];
-        const locale = browserLocales
-          .map((language) => language.toLowerCase().split("-")[0])
-          .find((language) => supportedLocales.has(language));
-
-        if (!locale) return;
-
-        sessionStorage.setItem(redirectKey, "true");
-        window.location.replace(`/${locale}/faq/`);
-      })();
-    </script>
+    <script src="../assets/locale-redirect.js" data-locale-path="/faq/"></script>
   </head>
   <body class="policy-page faq-page">
     <main class="policy">
