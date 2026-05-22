@@ -11,7 +11,7 @@
     <main class="policy">
       <div class="policy-text">
         <h1>Datenschutzerklärung</h1>
-        <p>Letzte Aktualisierung: 15. Februar 2026</p>
+        <p>Letzte Aktualisierung: 22. Mai 2026</p>
 
         <p>Elori ("wir", "unser" oder "uns") verpflichtet sich, Ihre Privatsphäre zu schützen. Diese Datenschutzerklärung erläutert, wie Ihre personenbezogenen Daten von Elori erfasst, verwendet und offengelegt werden. Diese Datenschutzerklärung gilt für unsere Website und die zugehörigen Subdomains (zusammen unser "Dienst") sowie für unsere Anwendung Elori. Durch den Zugriff auf oder die Nutzung unseres Dienstes bestätigen Sie, dass Sie unsere Erhebung, Speicherung, Nutzung und Offenlegung Ihrer personenbezogenen Daten, wie in dieser Datenschutzerklärung und unseren Nutzungsbedingungen beschrieben, gelesen, verstanden und akzeptiert haben.</p>
 
@@ -26,14 +26,21 @@
         <h3>B. Automatisch erfasste Informationen</h3>
         <ul>
           <li>Geräteinformationen: Wir können Informationen über Ihr mobiles Gerät erfassen, einschließlich Hardwaremodell, Betriebssystemversion, eindeutiger Gerätekennungen und Mobilfunknetzinformationen.</li>
-          <li>Nutzungsdaten: Wir erfassen anonyme Informationen darüber, wie Sie unsere Anwendung nutzen, z. B. verwendete Funktionen und in der App verbrachte Zeit, um das Nutzererlebnis zu verbessern.</li>
+          <li>Diagnose- und Absturzdaten: Wir verwenden Firebase Crashlytics, einen Google-Dienst, um App-Abstürze, Leistungsprobleme und Stabilitätsprobleme besser zu verstehen. Absturzberichte können Geräte- und Betriebssysteminformationen, App-Version, Zeitstempel, Absturzspuren, Diagnosekennungen und zugehörige technische Daten enthalten, die zur Diagnose des Problems erforderlich sind.</li>
+          <li>Nutzungs- und App-Statusdaten: Wir können begrenzte Informationen über App-Aktivität und App-Status erfassen, die erforderlich sind, um den Dienst bereitzustellen, zu warten, zu schützen und zu verbessern.</li>
         </ul>
 
-        <h3>C. Zugriff auf die Fotobibliothek</h3>
-        <p>Um die Kernfunktionalität der App bereitzustellen (Bearbeiten von Fotos und Erstellen von Karussells), benötigen wir Zugriff auf die Fotobibliothek Ihres Geräts.</p>
+        <h3>C. Inhalte, Vorlagen und Firebase-Dienste</h3>
+        <p>Elori nutzt Firebase- und Google Cloud-Dienste, um Teile der App bereitzustellen und zu betreiben. Dazu gehören Firestore-gestützte Konfigurations- oder Inhaltsdatensätze sowie durch Firebase Storage oder Google Cloud Storage bereitgestellte Ressourcen wie Vorlagen, Beispiele, Bilder oder andere in Elori verfügbare App-Inhalte. Diese Dienste können technische Anfrageinformationen, Geräte- oder App-Kennungen, Zeitstempel, IP-Adresse und Metadaten zur Inhaltsbereitstellung verarbeiten, soweit dies erforderlich ist, um die angeforderten Inhalte bereitzustellen und die App zuverlässig zu betreiben.</p>
+
+        <h3>D. Lokales Caching und UserDefaults</h3>
+        <p>Elori speichert bestimmte Informationen lokal auf Ihrem Gerät über App-Speicher, Caches und Apple UserDefaults. Dazu können Einstellungen, Onboarding-Status, Berechtigungs- oder Kaufstatus, Metadaten kürzlich geladener Inhalte, zwischengespeicherte Ressourcen und Einstellungen gehören, die der App helfen, Ihre Auswahl zu merken und schneller zu funktionieren. Lokale Daten bleiben auf Ihrem Gerät, sofern sie nicht von Ihnen entfernt, von iOS gelöscht oder beim Deinstallieren der App gelöscht werden.</p>
+
+        <h3>E. Zugriff auf die Fotobibliothek und Export</h3>
+        <p>Um die Kernfunktionalität der App bereitzustellen (Bearbeiten von Fotos und Erstellen von Karussells), kann Elori Zugriff auf ausgewählte Fotos und die Berechtigung anfordern, fertige Bilder in der Fotobibliothek Ihres Geräts zu speichern oder dorthin zu exportieren.</p>
         <ul>
-          <li>Lokale Verarbeitung: Wir legen großen Wert auf Ihre Privatsphäre. Alle Fotobearbeitungen und -verarbeitungen werden lokal auf Ihrem Gerät durchgeführt. Wir laden Ihre Fotos nicht auf unsere Server oder einen Cloud-Speicher von Drittanbietern hoch, es sei denn, Sie initiieren dies ausdrücklich (z. B. für Freigabe- oder Cloud-Backup-Funktionen).</li>
-          <li>Berechtigung: Sie können den Zugriff auf Ihre Fotomediathek jederzeit in den Geräteeinstellungen widerrufen, dies schränkt jedoch die Funktionalität der App ein.</li>
+          <li>Lokale Verarbeitung: Wir legen großen Wert auf Ihre Privatsphäre. Die gesamte Fotoverarbeitung und -bearbeitung ist darauf ausgelegt, lokal auf Ihrem Gerät zu erfolgen. Wir verwenden Ihre persönlichen Fotos nicht zum Trainieren von Modellen und sehen Ihre Fotobibliothek nicht ein.</li>
+          <li>Exportberechtigung: Wenn Sie eine Erstellung speichern oder exportieren möchten, kann iOS um Erlaubnis bitten, das exportierte Bild Ihrer Fotobibliothek hinzuzufügen. Sie können Fotoberechtigungen jederzeit in den Geräteeinstellungen widerrufen, dies kann jedoch Import- oder Exportfunktionen einschränken.</li>
         </ul>
 
         <h2>2. Wie wir Ihre Daten verwenden</h2>
@@ -43,34 +50,44 @@
           <li>Unsere App zu verbessern, zu personalisieren und zu erweitern.</li>
           <li>Zu verstehen und zu analysieren, wie Sie unsere App nutzen.</li>
           <li>Ihre Abonnement-Transaktionen zu verarbeiten (verwaltet über den Apple App Store).</li>
+          <li>App-Inhalte, Vorlagen, Konfiguration und zugehörige Ressourcen bereitzustellen.</li>
+          <li>Abstürze, Fehler und Leistungsprobleme zu diagnostizieren.</li>
           <li>Betrug zu erkennen und zu verhindern.</li>
           <li>Auf Ihre Kommentare und Fragen zu reagieren und Kundenservice bereitzustellen.</li>
         </ul>
 
         <h2>3. Abonnements und Zahlungen</h2>
-        <p>Unsere App bietet kostenpflichtige Abonnementpläne an (z. B. Jahres- und Wochenoptionen).</p>
+        <p>Unsere App bietet kostenpflichtige Abonnementpläne und einen einmaligen Lifetime-Kauf über Apples In-App-Kaufsystem an. Aktuelle StoreKit-Angebote können ein wöchentliches Abonnement mit einer 3-tägigen kostenlosen Testphase und anschließender wöchentlicher Verlängerung, ein jährlich automatisch verlängerbares Abonnement und einen einmaligen Lifetime-Kauf umfassen.</p>
         <ul>
           <li>Apple App Store: Alle Zahlungen werden über den Apple App Store abgewickelt. Wir speichern oder erfassen Ihre Zahlungskartendaten nicht. Diese Informationen werden direkt an Apple weitergegeben, dessen Verwendung Ihrer personenbezogenen Daten durch deren Datenschutzrichtlinie geregelt ist.</li>
         </ul>
 
         <h2>4. Dienste Dritter</h2>
-        <p>Wir können Drittunternehmen und Einzelpersonen aus folgenden Gründen beauftragen:</p>
+        <p>Wir nutzen Drittanbieter, um den Dienst zu betreiben, bereitzustellen, zu diagnostizieren und zu verbessern. Diese Anbieter können Informationen für uns nur insoweit verarbeiten, wie dies zur Erbringung ihrer Dienste erforderlich ist.</p>
         <ul>
-          <li>Um unseren Service zu ermöglichen;</li>
-          <li>Um den Service in unserem Namen bereitzustellen;</li>
-          <li>Um servicebezogene Dienstleistungen zu erbringen (z. B. Analysen).</li>
+          <li>Firebase- und Google-Dienste, einschließlich Firebase Crashlytics, Firestore und Firebase Storage oder Google Cloud Storage, für Diagnosen, App-Konfiguration, datenbankgestützte Inhalte und Inhaltsbereitstellung.</li>
+          <li>Apple App Store und StoreKit für Käufe, Abonnements, Testphasen, Belege, Verlängerungen, Kündigungen und Rückerstattungen.</li>
         </ul>
 
         <h2>5. Datenspeicherung</h2>
-        <p>Wir werden Ihre Informationen nur so lange aufbewahren, wie es für die in dieser Datenschutzrichtlinie dargelegten Zwecke erforderlich ist. Wir werden Ihre Informationen in dem Umfang aufbewahren und verwenden, der zur Erfüllung unserer rechtlichen Verpflichtungen, zur Beilegung von Streitigkeiten und zur Durchsetzung unserer Richtlinien erforderlich ist.</p>
+        <p>Wir speichern Informationen nur so lange, wie es für die in dieser Datenschutzerklärung beschriebenen Zwecke erforderlich ist, einschließlich der Bereitstellung der App, der Aufrechterhaltung der Inhaltsbereitstellung, der Diagnose von Abstürzen, der Erfüllung rechtlicher Verpflichtungen, der Beilegung von Streitigkeiten und der Durchsetzung unserer Richtlinien. Absturz- und Diagnoseinformationen werden nur so lange aufbewahrt, wie dies für Zuverlässigkeit, Sicherheit und Support erforderlich ist. Firebase-gehostete App-Inhalte und zugehörige Dienstprotokolle können gemäß unseren betrieblichen Anforderungen und den Aufbewahrungspraktiken von Google Firebase gespeichert werden. Lokale Caches und UserDefaults bleiben auf Ihrem Gerät, bis sie von der App, iOS oder Ihnen gelöscht werden.</p>
+        <p>Sie können die Löschung personenbezogener Informationen, die wir kontrollieren, per E-Mail an <a href="mailto:tryelori.com@gmail.com">tryelori.com@gmail.com</a> beantragen. Da Elori kein Konto erfordert, benötigen wir möglicherweise Informationen von Ihnen, um mit Ihrer Anfrage verbundene Datensätze zu finden. Käufe, Abonnements, Rückerstattungen, Kündigungsaufzeichnungen und Abrechnungsverlauf werden von Apple verwaltet und müssen möglicherweise über Ihre Apple ID oder den Apple Support bearbeitet werden.</p>
 
-        <h2>6. Privatsphäre von Kindern</h2>
+        <h2>6. Ihre Wahlmöglichkeiten</h2>
+        <ul>
+          <li>Sie können Fotobibliotheksberechtigungen in den iOS-Einstellungen verwalten.</li>
+          <li>Sie können lokal gespeicherte App-Daten löschen, indem Sie die App von Ihrem Gerät entfernen.</li>
+          <li>Sie können Abonnements in den Abonnementeinstellungen Ihrer Apple ID verwalten oder kündigen.</li>
+          <li>Sie können uns kontaktieren, um Zugriff, Berichtigung oder Löschung personenbezogener Informationen zu verlangen, die wir kontrollieren.</li>
+        </ul>
+
+        <h2>7. Privatsphäre von Kindern</h2>
         <p>Wir erfassen wissentlich keine personenbezogenen Daten von Kindern unter 13 Jahren. Wenn Sie ein Elternteil oder Erziehungsberechtigter sind und feststellen, dass Ihr Kind uns personenbezogene Daten zur Verfügung gestellt hat, kontaktieren Sie uns bitte.</p>
 
-        <h2>7. Änderungen dieser Datenschutzerklärung</h2>
+        <h2>8. Änderungen dieser Datenschutzerklärung</h2>
         <p>Wir können unsere Datenschutzerklärung von Zeit zu Zeit aktualisieren. Wir werden Sie über alle Änderungen informieren, indem wir die neue Datenschutzerklärung auf dieser Seite veröffentlichen. Es wird empfohlen, diese Datenschutzerklärung regelmäßig auf Änderungen zu überprüfen.</p>
 
-        <h2>8. Kontakt</h2>
+        <h2>9. Kontakt</h2>
         <p>Wenn Sie Fragen zu dieser Datenschutzerklärung haben, kontaktieren Sie uns bitte:</p>
         <ul>
           <li>Per E-Mail: <a href="mailto:tryelori.com@gmail.com">tryelori.com@gmail.com</a></li>

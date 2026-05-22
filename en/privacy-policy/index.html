@@ -11,7 +11,7 @@
     <main class="policy">
       <div class="policy-text">
         <h1>Privacy Policy</h1>
-        <p>Last Updated: February 15, 2026</p>
+        <p>Last Updated: May 22, 2026</p>
 
         <p>
           Elori ("we", "our", or "us") is committed to protecting your privacy. This
@@ -40,27 +40,57 @@
             identifiers, and mobile network information.
           </li>
           <li>
-            Usage Data: We collect anonymous information about how you use our
-            application, such as features used and time spent on the app, to help us
-            improve the user experience.
+            Diagnostics and Crash Data: We use Firebase Crashlytics, a Google service,
+            to help us understand app crashes, performance issues, and stability
+            problems. Crash reports may include device and operating system information,
+            app version, timestamps, crash traces, diagnostic identifiers, and related
+            technical data needed to diagnose the issue.
+          </li>
+          <li>
+            Usage and App State Data: We may collect limited information about app
+            activity and app state needed to provide, maintain, secure, and improve the
+            Service.
           </li>
         </ul>
 
-        <h3>C. Photo Library Access</h3>
+        <h3>C. Content, Templates, and Firebase Services</h3>
+        <p>
+          Elori uses Firebase and Google Cloud services to deliver and operate parts of
+          the App. This includes Firestore-backed configuration or content records and
+          Firebase Storage or Google Cloud Storage-backed assets such as templates,
+          examples, images, or other app content made available inside Elori. These
+          services may process technical request information, device or app identifiers,
+          timestamps, IP address, and content-delivery metadata as needed to provide the
+          requested content and keep the App working reliably.
+        </p>
+
+        <h3>D. Local Caching and UserDefaults</h3>
+        <p>
+          Elori stores some information locally on your device using app storage,
+          caches, and Apple UserDefaults. This may include preferences, onboarding state,
+          entitlement or purchase state, recently loaded content metadata, cached assets,
+          and settings that help the App remember your choices and work faster. Local
+          data remains on your device unless removed by you, cleared by iOS, or deleted
+          when you uninstall the App.
+        </p>
+
+        <h3>E. Photo Library Access and Export</h3>
         <p>
           To provide the core functionality of the App (editing photos and creating
-          carousels), we require access to your device's photo library.
+          carousels), Elori may request access to selected photos and permission to save
+          or export finished images to your device's photo library.
         </p>
         <ul>
           <li>
             Local Processing: We prioritize your privacy. All photo processing and
-            editing are performed locally on your device. We do not upload your photos
-            to our servers or any third-party cloud storage unless explicitly initiated
-            by you (e.g., for sharing or cloud backup features).
+            editing are designed to be performed locally on your device. We do not use
+            your personal photos to train models, and we do not view your photo library.
           </li>
           <li>
-            Permission: You can revoke access to your photo library at any time in your
-            device settings, though this will limit the App's functionality.
+            Export Permission: If you choose to save or export a creation, iOS may ask
+            for permission to add the exported image to your photo library. You can
+            revoke photo permissions at any time in your device settings, though this
+            may limit importing or exporting functionality.
           </li>
         </ul>
 
@@ -71,12 +101,19 @@
           <li>Improve, personalize, and expand our App.</li>
           <li>Understand and analyze how you use our App.</li>
           <li>Process your subscription transactions (managed via Apple App Store).</li>
+          <li>Deliver app content, templates, configuration, and related assets.</li>
+          <li>Diagnose crashes, errors, and performance issues.</li>
           <li>Find and prevent fraud.</li>
           <li>Respond to your comments, questions, and provide customer service.</li>
         </ul>
 
         <h2>3. Subscriptions and Payments</h2>
-        <p>Our App offers paid subscription plans (e.g., Yearly and Weekly options).</p>
+        <p>
+          Our App offers paid subscription plans and a lifetime one-time purchase through
+          Apple's in-app purchase system. Current StoreKit offerings may include a weekly
+          subscription with a 3-day free trial followed by weekly renewal, a yearly
+          auto-renewing subscription, and a lifetime one-time purchase.
+        </p>
         <ul>
           <li>
             Apple App Store: All payments are processed through the Apple App Store. We
@@ -87,36 +124,63 @@
         </ul>
 
         <h2>4. Third-Party Services</h2>
-        <p>We may employ third-party companies and individuals due to the following reasons:</p>
+        <p>
+          We use third-party service providers to operate, deliver, diagnose, and improve
+          the Service. These providers may process information for us only as needed to
+          provide their services.
+        </p>
         <ul>
-          <li>To facilitate our Service;</li>
-          <li>To provide the Service on our behalf;</li>
-          <li>To perform Service-related services (e.g., analytics).</li>
+          <li>
+            Firebase and Google services, including Firebase Crashlytics, Firestore, and
+            Firebase Storage or Google Cloud Storage, for diagnostics, app configuration,
+            database-backed content, and content delivery.
+          </li>
+          <li>Apple App Store and StoreKit for purchases, subscriptions, trials, receipts, renewals, cancellations, and refunds.</li>
         </ul>
 
         <h2>5. Data Retention</h2>
         <p>
-          We will retain your information only for as long as is necessary for the
-          purposes set out in this Privacy Policy. We will retain and use your
-          information to the extent necessary to comply with our legal obligations,
-          resolve disputes, and enforce our policies.
+          We retain information only for as long as necessary for the purposes described
+          in this Privacy Policy, including to provide the App, maintain content delivery,
+          diagnose crashes, comply with legal obligations, resolve disputes, and enforce
+          our policies. Crash and diagnostic information is kept only as long as needed
+          for reliability, security, and support. Firebase-hosted app content and related
+          service logs may be retained according to our operational needs and Google
+          Firebase retention practices. Local caches and UserDefaults remain on your
+          device until cleared by the App, iOS, or you.
+        </p>
+        <p>
+          You may request deletion of personal information we control by contacting us at
+          <a href="mailto:tryelori.com@gmail.com">tryelori.com@gmail.com</a>. Because
+          Elori does not require an account, we may need information from you to locate
+          records associated with your request. Purchases, subscriptions, refunds,
+          cancellation records, and billing history are managed by Apple and may need to
+          be handled through your Apple ID or Apple Support.
         </p>
 
-        <h2>6. Children's Privacy</h2>
+        <h2>6. Your Choices</h2>
+        <ul>
+          <li>You can manage photo library permissions in iOS Settings.</li>
+          <li>You can clear locally stored app data by deleting the App from your device.</li>
+          <li>You can manage or cancel subscriptions in your Apple ID subscription settings.</li>
+          <li>You can contact us to request access, correction, or deletion of personal information we control.</li>
+        </ul>
+
+        <h2>7. Children's Privacy</h2>
         <p>
           We do not knowingly collect personally identifiable information from children
           under 13. If you are a parent or guardian and you are aware that your child
           has provided us with Personal Data, please contact us.
         </p>
 
-        <h2>7. Changes to This Privacy Policy</h2>
+        <h2>8. Changes to This Privacy Policy</h2>
         <p>
           We may update our Privacy Policy from time to time. We will notify you of any
           changes by posting the new Privacy Policy on this page. You are advised to
           review this Privacy Policy periodically for any changes.
         </p>
 
-        <h2>8. Contact Us</h2>
+        <h2>9. Contact Us</h2>
         <p>If you have any questions about this Privacy Policy, please contact us:</p>
         <ul>
           <li>By email: <a href="mailto:tryelori.com@gmail.com">tryelori.com@gmail.com</a></li>
