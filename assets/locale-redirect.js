@@ -8,14 +8,15 @@
     ? navigator.languages
     : [navigator.language];
   const locale = browserLocales
-    .map((language) => language.toLowerCase().split("-")[0])
+    .map((language) =>
+      typeof language === "string" ? language.toLowerCase().split("-")[0] : null
+    )
     .find((language) => language === "en" || supportedLocales.has(language));
 
   if (!locale || locale === "en") return;
 
   const pagePath = document.currentScript?.dataset.localePath || "/";
-  const normalizedPath = pagePath.startsWith("/") ? pagePath : `/${pagePath}`;
-  const targetPath = normalizedPath === "/" ? "/" : normalizedPath;
+  const targetPath = pagePath.startsWith("/") ? pagePath : `/${pagePath}`;
 
   sessionStorage.setItem(redirectKey, "true");
   window.location.replace(`/${locale}${targetPath}`);
