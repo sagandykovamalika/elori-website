@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "lingo:login": "lingo.dev login",
+    "lingo:status": "lingo.dev status --verbose",
+    "lingo:translate": "lingo.dev run",
+    "lingo:translate:es": "lingo.dev run --target-locale es",
+    "lingo:translate:fr": "lingo.dev run --target-locale fr",
+    "lingo:translate:de": "lingo.dev run --target-locale de",
+    "lingo:translate:ru": "lingo.dev run --target-locale ru"
+  },
+  "devDependencies": {
+    "lingo.dev": "^0.136.0"
+  }
+}
