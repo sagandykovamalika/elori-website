@@ -1,8 +1,5 @@
 (() => {
   const supportedLocales = new Set(["de", "es", "fr", "ru"]);
-  const redirectKey = "eloriLocaleRedirected";
-
-  if (sessionStorage.getItem(redirectKey)) return;
 
   const browserLocales = navigator.languages?.length
     ? navigator.languages
@@ -17,7 +14,18 @@
 
   const pagePath = document.currentScript?.dataset.localePath || "/";
   const targetPath = pagePath.startsWith("/") ? pagePath : `/${pagePath}`;
+  const redirectKey = `eloriLocaleRedirected:${targetPath}`;
+
+  if (sessionStorage.getItem(redirectKey)) return;
 
   sessionStorage.setItem(redirectKey, "true");
+
+  if (
+    window.location.pathname === `/${locale}` ||
+    window.location.pathname.startsWith(`/${locale}/`)
+  ) {
+    return;
+  }
+
   window.location.replace(`/${locale}${targetPath}`);
 })();
