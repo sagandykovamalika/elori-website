@@ -20,6 +20,16 @@
       const normalized = language.toLowerCase();
       const base = normalized.split("-")[0];
 
+      if (
+        base === "zh" &&
+        (normalized.includes("hant") ||
+          normalized.includes("tw") ||
+          normalized.includes("hk") ||
+          normalized.includes("mo"))
+      ) {
+        return null;
+      }
+
       return supportedLocales.get(normalized) || defaultLocales.get(base) || supportedLocales.get(base) || base;
     })
     .filter(Boolean)
