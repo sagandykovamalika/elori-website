@@ -4,9 +4,14 @@
     "lingo:status": "lingo.dev status --verbose",
     "lingo:translate": "lingo.dev run",
     "lingo:translate:es": "lingo.dev run --target-locale es",
+    "lingo:translate:ru": "lingo.dev run --target-locale ru",
+    "lingo:translate:zh-Hans": "lingo.dev run --target-locale zh-Hans",
+    "lingo:translate:ja": "lingo.dev run --target-locale ja",
+    "lingo:translate:ko": "lingo.dev run --target-locale ko",
+    "lingo:translate:pt-BR": "lingo.dev run --target-locale pt-BR",
     "lingo:translate:fr": "lingo.dev run --target-locale fr",
     "lingo:translate:de": "lingo.dev run --target-locale de",
-    "lingo:translate:ru": "lingo.dev run --target-locale ru"
+    "lingo:translate:ar": "lingo.dev run --target-locale ar"
   },
   "devDependencies": {
     "lingo.dev": "^0.136.0"

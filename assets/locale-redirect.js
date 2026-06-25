@@ -1,14 +1,29 @@
 (() => {
-  const supportedLocales = new Set(["de", "es", "fr", "ru"]);
+  const supportedLocales = new Map(
+    ["ar", "de", "es", "fr", "ja", "ko", "pt-BR", "ru", "zh-Hans"].map((locale) => [
+      locale.toLowerCase(),
+      locale,
+    ])
+  );
+  const defaultLocales = new Map([
+    ["pt", "pt-BR"],
+    ["zh", "zh-Hans"],
+  ]);
 
   const browserLocales = navigator.languages?.length
     ? navigator.languages
     : [navigator.language];
   const locale = browserLocales
-    .map((language) =>
-      typeof language === "string" ? language.toLowerCase().split("-")[0] : null
-    )
-    .find((language) => language === "en" || supportedLocales.has(language));
+    .map((language) => {
+      if (typeof language !== "string") return null;
+
+      const normalized = language.toLowerCase();
+      const base = normalized.split("-")[0];
+
+      return supportedLocales.get(normalized) || defaultLocales.get(base) || supportedLocales.get(base) || base;
+    })
+    .filter(Boolean)
+    .find((language) => language === "en" || supportedLocales.has(language.toLowerCase()));
 
   if (!locale || locale === "en") return;
 
