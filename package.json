@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "gallery:build": "node scripts/build-gallery.mjs",
     "lingo:login": "lingo.dev login",
     "lingo:status": "lingo.dev status --verbose",
     "lingo:translate": "lingo.dev run",
