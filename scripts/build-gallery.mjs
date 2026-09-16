@@ -247,6 +247,13 @@ function pageShell({ title, description, canonical, body, image = `${SITE_URL}/a
   const structuredData = graph.length
     ? `\n    <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replaceAll('<', '\\u003c')}</script>`
     : '';
+  const pageResources = `${image}\n${body}`;
+  const imageConnectionHints = [
+    'https://firebasestorage.googleapis.com',
+    'https://storage.googleapis.com',
+  ].filter((origin) => pageResources.includes(origin))
+    .map((origin) => `    <link rel="preconnect" href="${origin}" crossorigin />\n    <link rel="dns-prefetch" href="//${new URL(origin).host}" />`)
+    .join('\n');
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -268,8 +275,7 @@ function pageShell({ title, description, canonical, body, image = `${SITE_URL}/a
     <meta name="twitter:title" content="${html(title)}" />
     <meta name="twitter:description" content="${html(description)}" />
     <meta name="twitter:image" content="${html(image)}" />
-    <link rel="preconnect" href="https://firebasestorage.googleapis.com" crossorigin />
-    <link rel="dns-prefetch" href="//firebasestorage.googleapis.com" />
+${imageConnectionHints}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Metal&amp;display=swap" />
@@ -490,12 +496,12 @@ function collectionItemCard(item) {
     ? ' class="collection-item-art premium-content-protected" oncontextmenu="return false"'
     : ' class="collection-item-art"';
   let media = item.image
-    ? `<img src="${html(item.image)}" alt="${html(item.name)} ${html(item.type)} preview" loading="lazy" decoding="async" width="720" height="720" />`
+    ? `<img src="${html(item.image)}" alt="${html(item.name)} ${html(item.type)} preview" loading="lazy" decoding="async" />`
     : '<span class="collection-item-fallback" aria-hidden="true"></span>';
 
   if (item.type === 'frame' && item.image) {
-    const areas = (item.frameAreas || []).map((area) => `<span class="frame-sample" style="left:${area.x * 100}%;top:${area.y * 100}%;width:${area.width * 100}%;height:${area.height * 100}%;transform:rotate(${area.rotation}deg);z-index:${item.placeholderBehindContent ? 1 : 3}"><img src="${html(area.sampleImage)}" alt="" loading="lazy" decoding="async" width="720" height="720" /></span>`).join('');
-    media = `<span class="frame-preview">${areas}<img class="frame-overlay" src="${html(item.image)}" alt="${html(item.name)} frame preview" loading="lazy" decoding="async" width="720" height="720" /></span>`;
+    const areas = (item.frameAreas || []).map((area) => `<span class="frame-sample" style="left:${area.x * 100}%;top:${area.y * 100}%;width:${area.width * 100}%;height:${area.height * 100}%;transform:rotate(${area.rotation}deg);z-index:${item.placeholderBehindContent ? 1 : 3}"><img src="${html(area.sampleImage)}" alt="" loading="lazy" decoding="async" /></span>`).join('');
+    media = `<span class="frame-preview">${areas}<img class="frame-overlay" src="${html(item.image)}" alt="${html(item.name)} frame preview" loading="lazy" decoding="async" /></span>`;
   }
   const body = `<span${protectionAttributes}>${media}</span>
           <span class="collection-item-name">${html(item.name)}</span>`;
@@ -507,8 +513,8 @@ function collectionItemCard(item) {
 }
 
 function detailFramePreview(item) {
-  const areas = (item.frameAreas || []).map((area) => `<span class="frame-sample" style="left:${area.x * 100}%;top:${area.y * 100}%;width:${area.width * 100}%;height:${area.height * 100}%;transform:rotate(${area.rotation}deg);z-index:${item.placeholderBehindContent ? 1 : 3}"><img src="${html(area.sampleImage)}" alt="" decoding="async" width="720" height="720" /></span>`).join('');
-  return `<span class="frame-preview">${areas}<img class="frame-overlay" src="${html(item.image)}" alt="${html(item.name)} frame preview" decoding="async" width="900" height="900" fetchpriority="high" /></span>`;
+  const areas = (item.frameAreas || []).map((area) => `<span class="frame-sample" style="left:${area.x * 100}%;top:${area.y * 100}%;width:${area.width * 100}%;height:${area.height * 100}%;transform:rotate(${area.rotation}deg);z-index:${item.placeholderBehindContent ? 1 : 3}"><img src="${html(area.sampleImage)}" alt="" decoding="async" /></span>`).join('');
+  return `<span class="frame-preview">${areas}<img class="frame-overlay" src="${html(item.image)}" alt="${html(item.name)} frame preview" decoding="async" fetchpriority="high" /></span>`;
 }
 
 function contentDetailPage(item, related) {
@@ -518,7 +524,7 @@ function contentDetailPage(item, related) {
   const preview = item.type === 'frame'
     ? detailFramePreview(item)
     : item.image
-      ? `<img src="${html(item.image)}" alt="${html(item.name)} ${typeLabel.toLowerCase()} preview" fetchpriority="high" decoding="async" width="900" height="900" />`
+      ? `<img src="${html(item.image)}" alt="${html(item.name)} ${typeLabel.toLowerCase()} preview" fetchpriority="high" decoding="async" />`
       : '<span class="detail-fallback" aria-hidden="true"></span>';
   const metadata = [
     ['Type', typeLabel],
