@@ -29,6 +29,7 @@ body {
 
 a {
   font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  text-decoration: none;
 }
 
 .page {
@@ -105,36 +106,59 @@ a {
 }
 
 .app-store {
-  position: relative;
-  display: inline-flex;
   align-items: center;
-  width: fit-content;
-  border-radius: 12px;
   align-self: flex-start;
+  border-radius: 12px;
+  display: inline-flex;
+  height: 56px;
+  position: relative;
+  transition: opacity 160ms ease, transform 160ms ease;
+  width: 168px;
+}
+
+.app-store:hover,
+.app-store:focus-visible {
+  opacity: 0.86;
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.hero-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
   margin-top: 16px;
+}
+
+.gallery-button {
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  color: #ffffff;
+  display: inline-flex;
+  font-size: 0.95rem;
+  font-weight: 400;
+  height: 56px;
+  justify-content: center;
+  padding: 0 22px;
+  text-decoration: none;
+  transition: background-color 160ms ease, color 160ms ease;
+  width: 168px;
+}
+
+.gallery-button:hover,
+.gallery-button:focus-visible {
+  background: #ffffff;
+  color: #181c14;
+  outline: none;
 }
 
 .app-store-badge {
   display: block;
-  height: 56px;
-  width: auto;
+  height: 100%;
+  width: 100%;
   border-radius: 12px;
-}
-
-.app-store-badge-hover {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-}
-
-.app-store:hover .app-store-badge-default,
-.app-store:focus-within .app-store-badge-default {
-  opacity: 0;
-}
-
-.app-store:hover .app-store-badge-hover,
-.app-store:focus-within .app-store-badge-hover {
-  opacity: 1;
 }
 
 .hero-visual {
@@ -178,20 +202,11 @@ a {
 .legal a {
   color: var(--link-muted);
   font-size: 0.8rem;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-decoration-color: rgba(111, 111, 111, 0.45);
-  text-decoration-thickness: 1px;
-}
-
-.legal a:hover {
-  text-decoration: none;
 }
 
 .legal a:focus-visible {
   outline: 2px solid var(--text);
   outline-offset: 4px;
-  text-decoration: none;
 }
 
 .policy-page {
