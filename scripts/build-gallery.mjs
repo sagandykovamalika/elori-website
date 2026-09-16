@@ -29,6 +29,38 @@ const slugify = (value) => String(value || 'template')
   .replace(/^-|-$/g, '')
   .slice(0, 64) || 'template';
 
+const CATEGORY_DESCRIPTIONS = {
+  popular: 'Discover Elori\'s most-loved photo collage templates for sharing everyday moments, recaps, trips, and creative stories.',
+  minimal: 'Create a clean, polished photo story with minimal collage templates that keep typography, spacing, and your images in focus.',
+  travel: 'Turn trips, city breaks, and vacation photos into a continuous story with travel photo collage and carousel templates.',
+  scrapbook: 'Layer photos, paper textures, stickers, and keepsake-inspired details with scrapbook photo collage templates.',
+  grid: 'Organize a full set of moments with structured photo grid templates made for balanced, easy-to-scan layouts.',
+  digital: 'Give your photos a playful interface-inspired look with digital collage templates influenced by screens, windows, and modern UI.',
+  'before-after': 'Compare transformations, progress, edits, and side-by-side moments with before-and-after photo collage templates.',
+  film: 'Frame your photos with analog-inspired film strips, contact sheets, and cinematic photo collage layouts.',
+};
+
+const categoryRoute = (category) => `${slugify(category)}-photo-collage-templates`;
+const categoryUrl = (category) => `/gallery/${categoryRoute(category)}/`;
+
+function categoryDescription(category) {
+  return CATEGORY_DESCRIPTIONS[slugify(category)]
+    || `Explore ${category.toLowerCase()} photo collage templates for creating continuous visual stories in Elori.`;
+}
+
+function breadcrumbSchema(canonical, items) {
+  return {
+    '@type': 'BreadcrumbList',
+    '@id': `${canonical}#breadcrumb`,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url.startsWith('http') ? item.url : `${SITE_URL}${item.url}`,
+    })),
+  };
+}
+
 const validHttpUrl = (value) => {
   try {
     const parsed = new URL(value);
@@ -205,10 +237,23 @@ function sanitizeLibraryItem(record, type) {
   };
 }
 
-function pageShell({ title, description, canonical, body, image = `${SITE_URL}/assets/opengraph.png`, jsonLd = null, bodyClass = 'gallery-page', bodyStyle = '' }) {
-  const structuredData = jsonLd
-    ? `\n    <script type="application/ld+json">${JSON.stringify(jsonLd).replaceAll('<', '\\u003c')}</script>`
+function pageShell({ title, description, canonical, body, image = `${SITE_URL}/assets/opengraph.png`, jsonLd = null, breadcrumbs = [], bodyClass = 'gallery-page', bodyStyle = '' }) {
+  const graph = [];
+  if (jsonLd) {
+    const { '@context': _context, ...entity } = jsonLd;
+    graph.push(entity);
+  }
+  if (breadcrumbs.length) graph.push(breadcrumbSchema(canonical, breadcrumbs));
+  const structuredData = graph.length
+    ? `\n    <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replaceAll('<', '\\u003c')}</script>`
     : '';
+  const pageResources = `${image}\n${body}`;
+  const imageConnectionHints = [
+    'https://firebasestorage.googleapis.com',
+    'https://storage.googleapis.com',
+  ].filter((origin) => pageResources.includes(origin))
+    .map((origin) => `    <link rel="preconnect" href="${origin}" crossorigin />\n    <link rel="dns-prefetch" href="//${new URL(origin).host}" />`)
+    .join('\n');
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -230,6 +275,10 @@ function pageShell({ title, description, canonical, body, image = `${SITE_URL}/a
     <meta name="twitter:title" content="${html(title)}" />
     <meta name="twitter:description" content="${html(description)}" />
     <meta name="twitter:image" content="${html(image)}" />
+${imageConnectionHints}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Metal&amp;display=swap" />
     <link rel="icon" href="/assets/favicon.ico" sizes="any" />
     <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
@@ -260,12 +309,12 @@ function siteFooter() {
     </footer>`;
 }
 
-function templateCard(template) {
+function templateCard(template, highPriority = false) {
   const badges = [
     template.pageCount > 1 ? `<span class="template-badge template-pages">${template.pageCount} pages</span>` : '',
   ].filter(Boolean).join('');
   const media = template.thumbnail
-    ? `<img src="${html(template.thumbnail)}" alt="${html(template.name)} collage template preview" loading="lazy" width="540" height="720" />`
+    ? `<img src="${html(template.thumbnail)}" alt="${html(template.name)} collage template preview" ${highPriority === true ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" width="540" height="720" />`
     : '<span class="template-fallback" aria-hidden="true"></span>';
 
   return `<a class="template-card${template.pageCount > 1 ? ' is-multipage' : ''}" href="${html(template.url)}">
@@ -276,14 +325,14 @@ function templateCard(template) {
 
 function bannerCard(banner, index) {
   const media = banner.thumbnail
-    ? `<img src="${html(banner.thumbnail)}" alt="${html(banner.name)} collection" ${index === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} width="900" height="900" />`
+    ? `<img src="${html(banner.thumbnail)}" alt="${html(banner.name)} collection" ${index === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async" width="900" height="900" />`
     : '';
   return `<a class="collection-card" href="${html(banner.url)}" style="--collection-color:${html(banner.color)}" aria-label="Explore the ${html(banner.name)} collection">
           ${media}
           <span class="collection-shade"></span>
           <div class="collection-copy">
             ${banner.titleArtwork
-              ? `<img class="collection-title-art" src="${html(banner.titleArtwork)}" alt="${html(banner.name)}" />`
+              ? `<img class="collection-title-art" src="${html(banner.titleArtwork)}" alt="${html(banner.name)}" decoding="async" />`
               : `<h2>${html(banner.name)}</h2>`}
             ${banner.subheader ? `<p>${html(banner.subheader)}</p>` : ''}
           </div>
@@ -309,8 +358,8 @@ function galleryPage(templates, banners) {
     : '';
 
   const categoryMarkup = categories.map((category) => `<section class="template-section" aria-labelledby="category-${slugify(category)}">
-        <div class="template-section-heading"><h2 id="category-${slugify(category)}">${html(category)}</h2></div>
-        <div class="template-row">${grouped.get(category).map(templateCard).join('')}</div>
+        <div class="template-section-heading"><h2 id="category-${slugify(category)}"><a href="${categoryUrl(category)}">${html(category)}</a></h2><a href="${categoryUrl(category)}">View all</a></div>
+        <div class="template-row">${grouped.get(category).map((template) => templateCard(template)).join('')}</div>
       </section>`).join('');
 
   const description = 'Explore Elori photo collage templates, from scrapbook stories and travel layouts to minimal photo carousels.';
@@ -324,6 +373,7 @@ function galleryPage(templates, banners) {
       name: 'Elori Template Gallery',
       description,
       url: `${SITE_URL}/gallery/`,
+      primaryImageOfPage: `${SITE_URL}/assets/opengraph.png`,
       mainEntity: {
         '@type': 'ItemList',
         numberOfItems: templates.length,
@@ -339,17 +389,67 @@ function galleryPage(templates, banners) {
   });
 }
 
+function categoryPage(category, templates, allCategories) {
+  const description = categoryDescription(category);
+  const canonical = `${SITE_URL}${categoryUrl(category)}`;
+  const image = templates.find((template) => template.thumbnail)?.thumbnail || `${SITE_URL}/assets/opengraph.png`;
+  const otherCategories = allCategories.filter((candidate) => candidate !== category);
+
+  return pageShell({
+    title: `${category} Photo Collage Templates — Elori`,
+    description,
+    canonical,
+    image,
+    breadcrumbs: [
+      { name: 'Gallery', url: '/gallery/' },
+      { name: `${category} templates`, url: categoryUrl(category) },
+    ],
+    jsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: `${category} Photo Collage Templates`,
+      description,
+      url: canonical,
+      primaryImageOfPage: image,
+      mainEntity: {
+        '@type': 'ItemList',
+        numberOfItems: templates.length,
+        itemListElement: templates.map((template, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: template.name,
+          url: `${SITE_URL}${template.url}`,
+        })),
+      },
+    },
+    body: `${siteHeader()}<main class="detail-main category-main">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/gallery/">Gallery</a><span aria-hidden="true">/</span><span aria-current="page">${html(category)}</span></nav>
+      <header class="category-intro">
+        <h1>${html(category)} Photo Collage Templates</h1>
+        <p class="category-description">${html(description)}</p>
+      </header>
+      <section aria-label="${html(category)} templates">
+        <div class="category-template-grid">${templates.map((template, index) => templateCard(template, index === 0)).join('')}</div>
+      </section>
+      <nav class="category-links" aria-label="Browse other template categories">
+        <h2>Explore more templates</h2>
+        <div>${otherCategories.map((candidate) => `<a href="${categoryUrl(candidate)}">${html(candidate)}</a>`).join('')}</div>
+      </nav>
+    </main>${siteFooter()}`,
+  });
+}
+
 function detailPage(template, related) {
   const keywordMarkup = template.keywords.length
     ? `<ul class="keyword-list" aria-label="Template keywords">${template.keywords.map((keyword) => `<li>${html(keyword)}</li>`).join('')}</ul>`
     : '';
   const relatedMarkup = related.length
-    ? `<section class="related" aria-labelledby="related-title"><div class="template-section-heading"><h2 id="related-title">More in ${html(template.category)}</h2><a href="/gallery/#category-${slugify(template.category)}">View gallery</a></div><div class="template-row">${related.map(templateCard).join('')}</div></section>`
+    ? `<section class="related" aria-labelledby="related-title"><div class="template-section-heading"><h2 id="related-title">More in ${html(template.category)}</h2><a href="${categoryUrl(template.category)}">View all</a></div><div class="template-row">${related.map((item) => templateCard(item)).join('')}</div></section>`
     : '';
   const description = `${template.name} is a ${template.category.toLowerCase()} photo collage template for Elori${template.keywords.length ? ` featuring ${template.keywords.slice(0, 4).join(', ')}` : ''}.`;
   const image = template.thumbnail || `${SITE_URL}/assets/opengraph.png`;
   const preview = template.thumbnail
-    ? `<img src="${html(template.thumbnail)}" alt="${html(template.name)} collage template preview" width="540" height="720" fetchpriority="high" />`
+    ? `<img src="${html(template.thumbnail)}" alt="${html(template.name)} collage template preview" width="540" height="720" fetchpriority="high" decoding="async" />`
     : '<span class="detail-fallback" aria-hidden="true"></span>';
 
   return pageShell({
@@ -357,6 +457,11 @@ function detailPage(template, related) {
     description,
     canonical: `${SITE_URL}${template.url}`,
     image,
+    breadcrumbs: [
+      { name: 'Gallery', url: '/gallery/' },
+      { name: template.category, url: categoryUrl(template.category) },
+      { name: template.name, url: template.url },
+    ],
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'CreativeWork',
@@ -369,7 +474,7 @@ function detailPage(template, related) {
       isPartOf: { '@type': 'WebSite', name: 'Elori', url: SITE_URL },
     },
     body: `${siteHeader()}<main class="detail-main">
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/gallery/">Gallery</a><span aria-hidden="true">/</span><span>${html(template.category)}</span></nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/gallery/">Gallery</a><span aria-hidden="true">/</span><a href="${categoryUrl(template.category)}">${html(template.category)}</a><span aria-hidden="true">/</span><span aria-current="page">${html(template.name)}</span></nav>
       <article class="template-detail">
         <div class="detail-preview${template.pageCount > 1 ? ' is-multipage' : ''}"><span class="detail-preview-media">${preview}</span></div>
         <div class="detail-copy">
@@ -391,12 +496,12 @@ function collectionItemCard(item) {
     ? ' class="collection-item-art premium-content-protected" oncontextmenu="return false"'
     : ' class="collection-item-art"';
   let media = item.image
-    ? `<img src="${html(item.image)}" alt="${html(item.name)} ${html(item.type)} preview" loading="lazy" />`
+    ? `<img src="${html(item.image)}" alt="${html(item.name)} ${html(item.type)} preview" loading="lazy" decoding="async" />`
     : '<span class="collection-item-fallback" aria-hidden="true"></span>';
 
   if (item.type === 'frame' && item.image) {
-    const areas = (item.frameAreas || []).map((area) => `<span class="frame-sample" style="left:${area.x * 100}%;top:${area.y * 100}%;width:${area.width * 100}%;height:${area.height * 100}%;transform:rotate(${area.rotation}deg);z-index:${item.placeholderBehindContent ? 1 : 3}"><img src="${html(area.sampleImage)}" alt="" loading="lazy" /></span>`).join('');
-    media = `<span class="frame-preview">${areas}<img class="frame-overlay" src="${html(item.image)}" alt="${html(item.name)} frame preview" loading="lazy" /></span>`;
+    const areas = (item.frameAreas || []).map((area) => `<span class="frame-sample" style="left:${area.x * 100}%;top:${area.y * 100}%;width:${area.width * 100}%;height:${area.height * 100}%;transform:rotate(${area.rotation}deg);z-index:${item.placeholderBehindContent ? 1 : 3}"><img src="${html(area.sampleImage)}" alt="" loading="lazy" decoding="async" /></span>`).join('');
+    media = `<span class="frame-preview">${areas}<img class="frame-overlay" src="${html(item.image)}" alt="${html(item.name)} frame preview" loading="lazy" decoding="async" /></span>`;
   }
   const body = `<span${protectionAttributes}>${media}</span>
           <span class="collection-item-name">${html(item.name)}</span>`;
@@ -408,8 +513,8 @@ function collectionItemCard(item) {
 }
 
 function detailFramePreview(item) {
-  const areas = (item.frameAreas || []).map((area) => `<span class="frame-sample" style="left:${area.x * 100}%;top:${area.y * 100}%;width:${area.width * 100}%;height:${area.height * 100}%;transform:rotate(${area.rotation}deg);z-index:${item.placeholderBehindContent ? 1 : 3}"><img src="${html(area.sampleImage)}" alt="" /></span>`).join('');
-  return `<span class="frame-preview">${areas}<img class="frame-overlay" src="${html(item.image)}" alt="${html(item.name)} frame preview" /></span>`;
+  const areas = (item.frameAreas || []).map((area) => `<span class="frame-sample" style="left:${area.x * 100}%;top:${area.y * 100}%;width:${area.width * 100}%;height:${area.height * 100}%;transform:rotate(${area.rotation}deg);z-index:${item.placeholderBehindContent ? 1 : 3}"><img src="${html(area.sampleImage)}" alt="" decoding="async" /></span>`).join('');
+  return `<span class="frame-preview">${areas}<img class="frame-overlay" src="${html(item.image)}" alt="${html(item.name)} frame preview" decoding="async" fetchpriority="high" /></span>`;
 }
 
 function contentDetailPage(item, related) {
@@ -419,7 +524,7 @@ function contentDetailPage(item, related) {
   const preview = item.type === 'frame'
     ? detailFramePreview(item)
     : item.image
-      ? `<img src="${html(item.image)}" alt="${html(item.name)} ${typeLabel.toLowerCase()} preview" fetchpriority="high" />`
+      ? `<img src="${html(item.image)}" alt="${html(item.name)} ${typeLabel.toLowerCase()} preview" fetchpriority="high" decoding="async" />`
       : '<span class="detail-fallback" aria-hidden="true"></span>';
   const metadata = [
     ['Type', typeLabel],
@@ -443,6 +548,10 @@ function contentDetailPage(item, related) {
     description,
     canonical: `${SITE_URL}${item.url}`,
     image: item.image || `${SITE_URL}/assets/opengraph.png`,
+    breadcrumbs: [
+      { name: 'Gallery', url: '/gallery/' },
+      { name: item.name, url: item.url },
+    ],
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'CreativeWork',
@@ -500,6 +609,10 @@ function collectionPage(collection, items) {
     description,
     canonical: `${SITE_URL}${collection.url}`,
     image: heroImage,
+    breadcrumbs: [
+      { name: 'Gallery', url: '/gallery/' },
+      { name: collection.name, url: collection.url },
+    ],
     bodyClass: 'gallery-page collection-page',
     bodyStyle: `--collection-page-bg:${collection.color}`,
     jsonLd: {
@@ -508,6 +621,7 @@ function collectionPage(collection, items) {
       name: `${collection.name} — Elori`,
       description,
       image: collection.thumbnail || undefined,
+      primaryImageOfPage: heroImage,
       url: `${SITE_URL}${collection.url}`,
       mainEntity: {
         '@type': 'ItemList',
@@ -522,11 +636,11 @@ function collectionPage(collection, items) {
     },
     body: `${siteHeader('collection-header')}<main class="detail-main collection-detail-main">
       <section class="collection-hero" style="--collection-color:${html(collection.color)}">
-        ${collection.thumbnail ? `<img src="${html(collection.thumbnail)}" alt="${html(collection.name)} collection" width="900" height="900" fetchpriority="high" />` : ''}
+        ${collection.thumbnail ? `<img src="${html(collection.thumbnail)}" alt="${html(collection.name)} collection" width="900" height="900" fetchpriority="high" decoding="async" />` : ''}
         <span class="collection-shade"></span>
         <div class="collection-hero-copy">
           ${collection.titleArtwork
-            ? `<img class="collection-hero-title" src="${html(collection.titleArtwork)}" alt="${html(collection.name)}" />`
+            ? `<img class="collection-hero-title" src="${html(collection.titleArtwork)}" alt="${html(collection.name)}" decoding="async" />`
             : `<h1>${html(collection.name)}</h1>`}
           ${collection.subheader ? `<p>${html(collection.subheader)}</p>` : ''}
         </div>
@@ -537,7 +651,7 @@ function collectionPage(collection, items) {
   });
 }
 
-function sitemap(templates, collections, contentItems = []) {
+function sitemap(templates, categories, collections, contentItems = []) {
   const staticPaths = ['/', '/gallery/', '/faq/', '/privacy-policy/', '/terms-of-use/'];
   const urls = [
     ...staticPaths.map((item) => ({ loc: `${SITE_URL}${item}` })),
@@ -545,6 +659,11 @@ function sitemap(templates, collections, contentItems = []) {
       loc: `${SITE_URL}${template.url}`,
       lastmod: template.updatedAt ? String(template.updatedAt).slice(0, 10) : '',
       image: template.thumbnail,
+    })),
+    ...categories.map((category) => ({
+      loc: `${SITE_URL}${category.url}`,
+      lastmod: category.updatedAt,
+      image: category.image,
     })),
     ...collections.map((collection) => ({
       loc: `${SITE_URL}${collection.url}`,
@@ -582,7 +701,36 @@ async function main() {
     ...rawFrames.filter((item) => item.isActive !== false).map((item) => sanitizeLibraryItem(item, 'frame')),
   ];
   const contentItems = libraryItems.filter((item) => item.type !== 'template');
+  const categoryNames = [...new Set(templates.map((template) => template.category))].sort((left, right) => {
+    if (left.toLowerCase() === 'popular') return -1;
+    if (right.toLowerCase() === 'popular') return 1;
+    return left.localeCompare(right);
+  });
+  const categories = categoryNames.map((name) => {
+    const categoryTemplates = templates.filter((template) => template.category === name);
+    return {
+      name,
+      url: categoryUrl(name),
+      route: categoryRoute(name),
+      templates: categoryTemplates,
+      image: categoryTemplates.find((template) => template.thumbnail)?.thumbnail || '',
+      updatedAt: categoryTemplates
+        .map((template) => template.updatedAt ? String(template.updatedAt).slice(0, 10) : '')
+        .filter(Boolean)
+        .sort()
+        .at(-1) || '',
+    };
+  });
   const libraryByKey = new Map(libraryItems.map((item) => [`${item.type}:${item.id}`, item]));
+  const cachedCollectionTitles = new Map();
+  await Promise.all(banners.map(async (banner) => {
+    try {
+      const titlePath = path.join(GALLERY_DIR, 'assets', 'collection-titles', `${banner.id}.png`);
+      cachedCollectionTitles.set(banner.id, await readFile(titlePath));
+    } catch {
+      // A text title is used when no previously rendered artwork is available.
+    }
+  }));
 
   await rm(GALLERY_DIR, { recursive: true, force: true });
   await Promise.all([
@@ -594,16 +742,36 @@ async function main() {
     mkdir(path.join(GALLERY_DIR, 'assets', 'collection-titles'), { recursive: true }),
   ]);
 
-  const renderedBanners = await Promise.all(banners.map((banner) => (
+  const newlyRenderedBanners = await Promise.all(banners.map((banner) => (
     renderCollectionTitle(banner, path.join(GALLERY_DIR, 'assets', 'collection-titles'))
   )));
+  const renderedBanners = await Promise.all(newlyRenderedBanners.map(async (banner) => {
+    if (banner.titleArtwork || !cachedCollectionTitles.has(banner.id)) return banner;
+    await writeFile(
+      path.join(GALLERY_DIR, 'assets', 'collection-titles', `${banner.id}.png`),
+      cachedCollectionTitles.get(banner.id),
+    );
+    return {
+      ...banner,
+      titleArtwork: `/gallery/assets/collection-titles/${banner.id}.png`,
+    };
+  }));
 
   const css = await readFile(path.join(ROOT, 'src', 'gallery.css'), 'utf8');
   await Promise.all([
     writeFile(path.join(GALLERY_DIR, 'gallery.css'), css),
     writeFile(path.join(GALLERY_DIR, 'index.html'), galleryPage(templates, renderedBanners)),
-    writeFile(path.join(ROOT, 'sitemap.xml'), sitemap(templates, renderedBanners, contentItems)),
+    writeFile(path.join(ROOT, 'sitemap.xml'), sitemap(templates, categories, renderedBanners, contentItems)),
   ]);
+
+  await Promise.all(categories.map(async (category) => {
+    const directory = path.join(GALLERY_DIR, category.route);
+    await mkdir(directory, { recursive: true });
+    await writeFile(
+      path.join(directory, 'index.html'),
+      categoryPage(category.name, category.templates, categoryNames),
+    );
+  }));
 
   await Promise.all(templates.map(async (template) => {
     const related = templates
@@ -632,7 +800,7 @@ async function main() {
     await writeFile(path.join(directory, 'index.html'), contentDetailPage(item, related));
   }));
 
-  console.log(`Generated ${templates.length} template pages, ${contentItems.length} content pages, ${banners.length} collection pages, and sitemap.xml.`);
+  console.log(`Generated ${templates.length} template pages, ${categories.length} category pages, ${contentItems.length} content pages, ${banners.length} collection pages, and sitemap.xml.`);
 }
 
 main().catch((error) => {
