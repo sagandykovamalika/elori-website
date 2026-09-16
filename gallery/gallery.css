@@ -34,14 +34,11 @@ html {
 }
 
 .gallery-header {
-  -webkit-backdrop-filter: blur(18px);
   align-items: center;
-  backdrop-filter: blur(18px);
   background: linear-gradient(
-    115deg,
-    rgba(10, 15, 8, 0.97) 0%,
-    rgba(42, 54, 33, 0.95) 52%,
-    rgba(17, 24, 14, 0.96) 100%
+    180deg,
+    rgba(24, 28, 20, 1) 0%,
+    rgba(24, 28, 20, 0) 100%
   );
   display: flex;
   justify-content: space-between;
@@ -454,9 +451,7 @@ html {
 }
 
 .collection-page .collection-header {
-  background:
-    linear-gradient(115deg, rgba(0, 0, 0, 0.46) 0%, rgba(255, 255, 255, 0.1) 52%, rgba(0, 0, 0, 0.34) 100%),
-    var(--collection-page-bg);
+  background: linear-gradient(180deg, var(--collection-page-bg) 0%, transparent 100%);
   left: 0;
   max-width: none;
   position: fixed;
@@ -627,6 +622,13 @@ html {
 
 .content-detail-main {
   max-width: 1240px;
+}
+
+.content-detail {
+  gap: clamp(40px, 6vw, 88px);
+  grid-template-columns: minmax(320px, 0.95fr) minmax(280px, 1fr);
+  margin-inline: 0;
+  max-width: none;
 }
 
 .content-preview {
