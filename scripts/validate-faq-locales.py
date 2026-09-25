@@ -30,6 +30,21 @@ UNTRANSLATED_PATTERNS = (
     r"The free version supports",
     r"A project can contain still photos",
 )
+TRANSLATED_BRAND_PATTERNS = (
+    r"إلوري",
+    r"إيلوري",
+    r"الوري",
+    r"Элор",
+    r"伊洛里",
+    r"埃洛里",
+    r"艾洛里",
+    r"エルオリ",
+    r"エロリ",
+    r"イロリ",
+    r"엘로리",
+    r"앨로리",
+)
+EXPECTED_BRAND_COUNT = PAGES["en"].read_text().count("Elori")
 
 
 def text_content(fragment: str) -> str:
@@ -81,9 +96,16 @@ def validate(label: str, page: Path) -> None:
         f"{label}: schema answers differ"
     )
     assert source.count('hreflang=') == 11, f"{label}: incomplete hreflang set"
+    assert source.count("Elori") == EXPECTED_BRAND_COUNT, (
+        f"{label}: every brand mention must use the exact spelling Elori"
+    )
 
     for pattern in BAD_PATTERNS:
         assert not re.search(pattern, source, re.I), f"{label}: bad translation artifact: {pattern}"
+    for pattern in TRANSLATED_BRAND_PATTERNS:
+        assert not re.search(pattern, source, re.I), (
+            f"{label}: translated brand name: {pattern}"
+        )
     if label not in {"en", "en-copy"}:
         for pattern in UNTRANSLATED_PATTERNS:
             assert not re.search(pattern, source, re.I), (
