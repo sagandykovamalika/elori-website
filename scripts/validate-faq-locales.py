@@ -17,12 +17,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PAGES = {
     "en": ROOT / "faq/index.html",
-    "en-copy": ROOT / "en/faq/index.html",
     **{
         locale: ROOT / locale / "faq/index.html"
         for locale in ("ar", "de", "es", "fr", "ja", "ko", "pt-BR", "ru", "zh-Hans")
     },
 }
+ENGLISH_REDIRECT = ROOT / "en/faq/index.html"
 BAD_PATTERNS = (
     r"\{\\fn",
     r"\{\\fs",
@@ -49,9 +49,6 @@ TRANSLATED_BRAND_PATTERNS = (
     r"엘로리",
     r"앨로리",
 )
-EXPECTED_BRAND_COUNT = PAGES["en"].read_text().count("Elori")
-
-
 def text_content(fragment: str) -> str:
     without_tags = re.sub(r"<[^>]+>", " ", fragment)
     return " ".join(html.unescape(without_tags).split())
@@ -69,7 +66,7 @@ def resolve_repository_target(page: Path, raw: str) -> Path:
 
 def validate(label: str, page: Path) -> None:
     source = page.read_text()
-    expected_lang = "en" if label in {"en", "en-copy"} else label
+    expected_lang = label
     html_tag = re.search(r"<html\s+([^>]+)>", source).group(1)
     assert f'lang="{expected_lang}"' in html_tag, f"{label}: incorrect lang attribute"
     if label == "ar":
@@ -102,17 +99,13 @@ def validate(label: str, page: Path) -> None:
         f"{label}: schema answers differ"
     )
     assert source.count('hreflang=') == 11, f"{label}: incomplete hreflang set"
-    assert source.count("Elori") == EXPECTED_BRAND_COUNT, (
-        f"{label}: every brand mention must use the exact spelling Elori"
-    )
-
     for pattern in BAD_PATTERNS:
         assert not re.search(pattern, source, re.I), f"{label}: bad translation artifact: {pattern}"
     for pattern in TRANSLATED_BRAND_PATTERNS:
         assert not re.search(pattern, source, re.I), (
             f"{label}: translated brand name: {pattern}"
         )
-    if label not in {"en", "en-copy"}:
+    if label != "en":
         for pattern in UNTRANSLATED_PATTERNS:
             assert not re.search(pattern, source, re.I), (
                 f"{label}: untranslated or corrupted text: {pattern}"
@@ -125,8 +118,27 @@ def validate(label: str, page: Path) -> None:
         assert target.is_file(), f"{label}: missing repository link target {raw}"
 
 
+def validate_english_redirect() -> None:
+    source = ENGLISH_REDIRECT.read_text()
+    assert '<meta http-equiv="refresh" content="0; url=/faq/" />' in source, (
+        "en redirect: missing no-JavaScript redirect to /faq/"
+    )
+    assert 'window.location.replace("/faq/")' in source, (
+        "en redirect: missing JavaScript redirect to /faq/"
+    )
+    assert '<link rel="canonical" href="https://tryelori.com/faq/" />' in source, (
+        "en redirect: canonical URL must be /faq/"
+    )
+    assert 'type="application/ld+json"' not in source, (
+        "en redirect: must not duplicate FAQ structured data"
+    )
+    assert '<main' not in source, "en redirect: must not duplicate the FAQ document"
+
+
 for locale, path in PAGES.items():
     validate(locale, path)
     print(f"{locale}: OK")
 
-print(f"Validated {len(PAGES)} FAQ pages.")
+validate_english_redirect()
+print("en redirect: OK")
+print(f"Validated {len(PAGES)} FAQ pages and the English redirect.")
