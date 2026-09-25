@@ -139,6 +139,11 @@ a {
   flex-direction: column;
   min-height: 300px;
   padding: 30px 48px 30px 30px;
+  transition: background-color 180ms ease;
+}
+
+.content-card:hover {
+  background-color: #697565;
 }
 
 .card-mark {
