@@ -23,6 +23,7 @@ PAGES = {
     },
 }
 ENGLISH_REDIRECT = ROOT / "en/faq/index.html"
+LOCALE_REDIRECT = ROOT / "assets/locale-redirect.js"
 BAD_PATTERNS = (
     r"\{\\fn",
     r"\{\\fs",
@@ -49,6 +50,8 @@ TRANSLATED_BRAND_PATTERNS = (
     r"엘로리",
     r"앨로리",
 )
+
+
 def text_content(fragment: str) -> str:
     without_tags = re.sub(r"<[^>]+>", " ", fragment)
     return " ".join(html.unescape(without_tags).split())
@@ -78,6 +81,20 @@ def validate(label: str, page: Path) -> None:
     pairs = re.findall(r"<h3>(.*?)</h3>\s*<p>(.*?)</p>", source, re.S)
     questions = [text_content(question) for question, _ in pairs]
     answers = [text_content(answer) for _, answer in pairs]
+
+    if label != "en":
+        english_pairs = re.findall(
+            r"<h3>(.*?)</h3>\s*<p>(.*?)</p>", PAGES["en"].read_text(), re.S
+        )
+        english_questions = [text_content(question) for question, _ in english_pairs]
+        english_answers = [text_content(answer) for _, answer in english_pairs]
+        for index, (question, answer) in enumerate(zip(questions, answers), start=1):
+            assert question != english_questions[index - 1], (
+                f"{label}: question {index} is identical to English"
+            )
+            assert answer != english_answers[index - 1], (
+                f"{label}: answer {index} is identical to English"
+            )
 
     schema_match = re.search(
         r'<script type="application/ld\+json">\s*(.*?)\s*</script>', source, re.S
@@ -123,7 +140,10 @@ def validate_english_redirect() -> None:
     assert '<meta http-equiv="refresh" content="0; url=/faq/" />' in source, (
         "en redirect: missing no-JavaScript redirect to /faq/"
     )
-    assert 'window.location.replace("/faq/")' in source, (
+    assert (
+        'window.location.replace(`/faq/${window.location.search}${window.location.hash}`)'
+        in source
+    ), (
         "en redirect: missing JavaScript redirect to /faq/"
     )
     assert '<link rel="canonical" href="https://tryelori.com/faq/" />' in source, (
@@ -135,10 +155,19 @@ def validate_english_redirect() -> None:
     assert '<main' not in source, "en redirect: must not duplicate the FAQ document"
 
 
+def validate_locale_redirect() -> None:
+    source = LOCALE_REDIRECT.read_text()
+    assert "${window.location.search}${window.location.hash}" in source, (
+        "locale redirect: query string and fragment must be preserved"
+    )
+
+
 for locale, path in PAGES.items():
     validate(locale, path)
     print(f"{locale}: OK")
 
 validate_english_redirect()
 print("en redirect: OK")
-print(f"Validated {len(PAGES)} FAQ pages and the English redirect.")
+validate_locale_redirect()
+print("locale redirect: OK")
+print(f"Validated {len(PAGES)} FAQ pages and both redirect behaviors.")

@@ -6,6 +6,7 @@ on:
       - "faq/**"
       - "*/faq/**"
       - "assets/faq-toc.js"
+      - "assets/locale-redirect.js"
       - "styles.css"
       - "scripts/validate-faq-locales.py"
       - ".github/workflows/faq-validation.yml"
@@ -15,6 +16,7 @@ on:
       - "faq/**"
       - "*/faq/**"
       - "assets/faq-toc.js"
+      - "assets/locale-redirect.js"
       - "styles.css"
       - "scripts/validate-faq-locales.py"
 
@@ -27,4 +29,6 @@ jobs:
         with:
           python-version: "3.12"
       - name: Validate checked-in FAQ files
-        run: python3 scripts/validate-faq-locales.py
+        run: |
+          echo "### FAQ validation" >> "$GITHUB_STEP_SUMMARY"
+          python3 scripts/validate-faq-locales.py | tee -a "$GITHUB_STEP_SUMMARY"
