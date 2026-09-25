@@ -42,14 +42,13 @@ a {
   );
   display: flex;
   justify-content: space-between;
-  left: 50%;
-  max-width: 1440px;
+  inset-inline: 0;
   opacity: 0;
   padding: 28px clamp(20px, 4vw, 64px) 38px;
   pointer-events: none;
   position: fixed;
   top: 0;
-  transform: translate(-50%, -16px);
+  transform: translateY(-16px);
   transition: opacity 180ms ease, transform 180ms ease, visibility 180ms;
   visibility: hidden;
   width: 100%;
@@ -59,7 +58,7 @@ a {
 .home-header.is-visible {
   opacity: 1;
   pointer-events: auto;
-  transform: translate(-50%, 0);
+  transform: translateY(0);
   visibility: visible;
 }
 
