@@ -52,5 +52,7 @@
     return;
   }
 
-  window.location.replace(`/${locale}${targetPath}`);
+  window.location.replace(
+    `/${locale}${targetPath}${window.location.search}${window.location.hash}`
+  );
 })();

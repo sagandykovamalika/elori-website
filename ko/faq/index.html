@@ -1,90 +1,543 @@
 <!doctype html>
 <html lang="ko">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="apple-itunes-app" content="app-id=6759309696">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-itunes-app" content="app-id=6759309696" />
     <title>Elori FAQ</title>
-    <meta name="description" content="Elori 구독, 환불, 지원, 개인정보 보호 및 앱 접근에 관한 자주 묻는 질문">
-    <link rel="canonical" href="https://tryelori.com/ko/faq/">
-    <link rel="stylesheet" href="../../styles.css">
+    <meta name="description" content="Elori 사진 콜라주, 템플릿, 레이아웃, 텍스트, 필터, 비디오 캐러셀, 내보내기, 구독, 개인정보 보호 및 지원에 대한 자주 묻는 질문입니다." />
+    <link rel="canonical" href="https://tryelori.com/ko/faq/" />
+    <link rel="alternate" hreflang="x-default" href="https://tryelori.com/faq/" />
+    <link rel="alternate" hreflang="en" href="https://tryelori.com/faq/" />
+    <link rel="alternate" hreflang="ar" href="https://tryelori.com/ar/faq/" />
+    <link rel="alternate" hreflang="de" href="https://tryelori.com/de/faq/" />
+    <link rel="alternate" hreflang="es" href="https://tryelori.com/es/faq/" />
+    <link rel="alternate" hreflang="fr" href="https://tryelori.com/fr/faq/" />
+    <link rel="alternate" hreflang="ja" href="https://tryelori.com/ja/faq/" />
+    <link rel="alternate" hreflang="ko" href="https://tryelori.com/ko/faq/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://tryelori.com/pt-BR/faq/" />
+    <link rel="alternate" hreflang="ru" href="https://tryelori.com/ru/faq/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://tryelori.com/zh-Hans/faq/" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" />
+    <link rel="stylesheet" href="../../styles.css?v=faq-layout-7" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "구독을 관리하거나 취소하려면 어떻게 하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Elori 구독은 Apple ID를 통해 관리됩니다. iPhone의 설정 앱을 열고, 상단의 내 이름을 탭한 다음 구독을 탭하세요. Elori를 선택하면 플랜을 보거나 변경하거나 취소할 수 있어요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "앱을 삭제하면 구독도 취소되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 기기에서 Elori를 삭제해도 활성 구독은 취소되지 않아요. Apple ID 구독 설정에서 직접 취소해야 해요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "구매 내역을 복원하려면 어떻게 하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "원래 구매할 때 사용한 Apple ID로 로그인되어 있는지 확인한 후, Elori 앱 내에서 구매 복원 옵션을 사용하세요. 그래도 접근 권한이 업데이트되지 않으면 앱을 재시작하고 Apple ID 구독 상태를 확인해 보세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "환불을 요청하려면 어떻게 하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "App Store의 모든 구매 및 환불은 Apple에서 처리합니다. 환불을 요청하려면 reportaproblem.apple.com 에 접속해서 Apple ID로 로그인한 후 Elori를 선택하고 Apple의 환불 요청 절차를 따라 주세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori에서 직접 환불해 줄 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. 결제는 Apple에서 처리하기 때문에 환불도 Apple을 통해 요청해야 해요. 어디로 가야 하는지 안내하거나 앱에 관한 질문에 답변하는 건 기꺼이 도와드릴 수 있지만, App Store 환불을 직접 승인하거나 처리할 수는 없어요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori에 문의하려면 어떻게 하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "tryelori.com@gmail.com 으로 이메일을 보내 주세요. 더 빠르게 도와드릴 수 있도록 사용 중인 기기, iOS 버전, 그리고 어떤 일이 있었는지 간단히 설명해 주시면 좋아요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "구매 후 Pro 기능을 사용할 수 없다면 어떻게 해야 하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "먼저 Apple ID 구독에서 구매 또는 구독이 활성 상태인지 확인하세요.\n          그런 다음 Elori를 다시 열고 앱 내에서 구매 복원을 시도해 보세요. 그래도\n          작동하지 않으면 자세한 내용과 함께 저희에게 연락 주시면 문제 해결을 도와드리겠습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori를 사용하려면 계정이 필요한가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "아니요. Elori는 계정이나 로그인 없이 사용할 수 있어요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori가 내 사진을 저장하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Elori는 사진을 기기 내에서 처리하도록 설계되었어요. 저희는 사용자의 사진을\n          서버에 저장, 호스팅하거나 보지 않습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori는 iPhone용 사진 콜라주 제작 앱인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. Elori는 iPhone용 사진 콜라주 제작 앱으로, 단일 이미지 콜라주, 여러 장의 사진으로 구성된 레이아웃, 스크랩북 스타일 디자인, 소셜 미디어 그래픽 등을 만들 수 있습니다. 템플릿을 사용하거나 직접 사진을 레이아웃에 배치한 후, 텍스트, 배경, 프레임, 스티커, 필터, 그리기 도구를 사용하여 디자인을 완성할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori로 무엇을 만들 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "사진 콜라주, 무드 보드, 디지털 스크랩북, 여행 후기, 전후 디자인, 스토리 그래픽, 캐러셀 게시물, 사진 또는 비디오 합성 등을 만들 수 있습니다. Elori는 레이아웃 도구와 장식 개체, 타이포그래피, 배경, 미디어 컨트롤을 결합하여 빠른 콜라주 제작부터 정교한 시각 프로젝트까지 지원합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "미리 만들어진 템플릿으로 콜라주를 만들 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. Elori에는 사용자가 미디어를 추가하기 전에 완성된 구조를 제공하는 템플릿 라이브러리가 포함되어 있습니다. 샘플 사진이나 비디오를 교체하고, 텍스트를 편집하고, 색상, 레이아웃, 프레임, 스티커, 배경을 사용자 지정하여 나만의 템플릿을 만들 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "템플릿 없이 콜라주를 만들 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 빈 레이아웃이나 간단한 레이아웃을 선택하고 직접 찍은 사진, 동영상, 텍스트, 그림, 장식 요소 등을 사용하여 디자인을 만들 수 있습니다. 미리 디자인된 스타일 대신 나만의 사진 콜라주를 만들고 싶을 때 유용합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "어떤 콜라주 레이아웃을 사용할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Elori는 세로 및 가로 분할, 행, 열, 배너, 모자이크, 클래식 그리드, 하나의 큰 메인 이미지가 있는 레이아웃 등 다양한 사진 그리드 및 콜라주 레이아웃을 지원합니다. 간격과 모서리 곡률도 변경할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "소셜 미디어 게시물에 사용할 수 있는 화면 비율은 무엇인가요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Elori는 1:1 정사각형, 3:4 세로, 4:5 세로, 4:3 가로, 9:16 스토리 캔버스를 제공합니다. 이러한 옵션을 통해 정사각형 게시물, 세로 피드 그래픽, 가로 콜라주, Instagram 스토리 및 기타 세로형 소셜 미디어 디자인을 더욱 쉽게 제작할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "사진 간격과 모서리 둥글기를 변경할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 사진 사이의 간격과 콜라주 슬롯의 모서리 곡률을 조정할 수 있습니다. 촘촘한 사진 그리드부터 모서리를 둥글게 처리하고 여백을 더 두어 부드러운 레이아웃까지 원하는 대로 만들 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "사진을 다양한 모양 안에 넣을 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 사진 슬롯에는 직사각형, 원, 타원, 하트, 별, 육각형, 마름모, 그리고 삼각형 모양을 사용할 수 있습니다. 모양이 있는 사진 프레임은 스크랩북 콜라주, 초대장, 무드 보드, 그리고 재미있는 소셜 미디어 게시물에 잘 어울립니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "콜라주에 장식 프레임을 추가할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. Elori에는 디자인에 레이어링할 수 있는 장식 프레임이 포함되어 있으며, 사진이나 비디오 영역을 교체할 수 있는 프레임도 있습니다. 프레임 안에 미디어를 배치하고 주변 콜라주를 계속 편집하세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "제 사진이나 동영상을 배경으로 사용할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 캔버스 배경은 단색, Elori 라이브러리의 배경, 또는 본인의 사진이나 동영상으로 설정할 수 있습니다. 이를 통해 질감이 있는 배경, 브랜드 배경 또는 애니메이션 콜라주 배경을 쉽게 만들 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "사진 콜라주에 텍스트를 추가할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 캔버스 어디에든 텍스트를 추가한 다음, 문구, 글꼴, 크기, 색상, 배경색, 정렬, 회전 및 레이어 위치를 편집할 수 있습니다. 텍스트 도구는 제목, 캡션, 날짜, 인용구, 라벨 및 스크랩북 메모에 유용합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori에서 어떤 글꼴을 사용할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Elori에는 모던 산세리프, 엘레강트 세리프, 스크립트, 손글씨, 볼드 디스플레이 및 클래식 글꼴이 포함되어 있습니다. 사용 가능한 글꼴 패밀리에는 Inter, Montserrat, Poppins, Playfair Display, Cormorant Garamond, Caveat, Pacifico, Bebas Neue, Oswald, Georgia 등이 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "곡선 또는 손으로 그린 ​​텍스트를 만들 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 텍스트 경로 도구를 사용하면 그린 경로를 따라 텍스트 모양을 만들 수 있습니다. 곡선형 캡션, 원형 글자, 손글씨체, 장식용 스크랩북 타이포그래피 등에 활용해 보세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori에 텍스트 위젯이 포함되어 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 일반 텍스트 외에도 Elori는 채팅 말풍선, 위치 태그, 네 자리 숫자 카운터와 같은 스타일이 적용된 텍스트 요소를 지원합니다. 이러한 위젯은 콜라주에 소셜, 여행, 일기, 타임스탬프와 같은 세부 정보를 추가할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "스티커와 디자인 개체를 추가할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. Elori의 개체 및 스티커 컬렉션을 둘러보고 캔버스에 항목을 추가한 다음, 크기 조정, 회전, 복제, 스타일 변경 또는 레이어 간 이동을 할 수 있습니다. 스티커 와 개체를 사용하면 간단한 사진 그리드를 디지털 스크랩북이나 테마 콜라주로 만들 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "콜라주에 직접 그림을 그릴 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 그린 그림은 편집 가능한 캔버스 레이어가 되어 이동, 크기 조정, 회전, 순서 변경 또는 삭제할 수 있습니다. 그리기 도구를 사용하여 손글씨, 화살표, 낙서 및 사용자 지정 요소를 추가할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "어떤 사진 편집 도구가 포함되어 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Elori를 사용하면 콜라주 안의 사진을 자르고, 뒤집고, 회전하고, 바꾸고, 위치를 변경할 수 있습니다. 또한 필터와 텍스처를 적용하고, 사진 모양을 바꾸고, 테두리를 추가하고, 각 이미지가 제자리에 어떻게 배치되는지 조정할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori는 어떤 사진 필터를 제공하나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "편집기에는 모노, 느와르, 크롬, 페이드, 인스턴트, 프로세스, 트랜스퍼, 세피아, 및 비네트 효과가 포함되어 있으며, 필터를 적용하지 않은 옵션도 제공됩니다. 흑백 콜라주, 빈티지 사진 편집, 필름에서 영감을 받은 디자인, 일관된 색상 처리 등에 활용해 보세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "테두리, 질감, 그림자를 추가할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 사진과 디자인 개체에 테두리와 질감을 적용할 수 있으며, 개체는 페이퍼, 소프트, 리프트, 드라마틱 그림자 스타일도 지원합니다. 이러한 컨트롤을 사용하여 종이를 오려낸 듯한 효과, 인쇄된 사진 효과, 또는 겹치는 레이어 사이의 분리 효과를 만들 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori로 사진의 배경을 제거할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 지원되는 스틸 이미지의 경우, Elori는 전경을 분리하고 기기에서 원본 배경을 제거할 수 있습니다. 잘라낸 부분을 다른 사진, 색상, 질감 또는 콜라주 레이아웃 위에 배치하세요. 결과는 피사체가 배경과 얼마나 명확하게 분리되는지에 따라 달라집니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "어떤 요소가 앞에 오거나 뒤에 오는지 제어할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 텍스트, 개체, 그림 및 템플릿 모양에 레이어 제어 기능이 제공됩니다. 요소를 앞뒤로, 앞으로 또는 뒤로 이동하여 겹치는 스크랩북 효과를 만들고 중요한 콘텐츠를 계속 표시할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori는 캔버스에서 요소를 정렬하는 데 도움이 되나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 중앙 안내선과 회전 스냅 기능을 사용하면 항목을 가로 또는 세로로 정렬할 수 있으며, 콜라주를 구성할 때 일반적인 회전 각도를 더 쉽게 사용할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori 콜라주에 비디오를 추가할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. Elori는 콜라주 슬롯, 프레임 자리 표시자, 독립형 개체, 및 배경에 비디오를 지원하므로 사진과 비디오 클립을 하나의 디자인으로 결합할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "비디오 클립을 자르거나 음소거할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 비디오 컨트롤에는 자르기, 커버 프레임 선택, 클립 음소거 또는 음소거 해제 기능이 포함되어 있습니다. 비디오의 어느 부분이 표시될지, 그리고 오디오가 내보낸 콜라주에 포함될지 여부를 제어할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "같은 프로젝트에 사진과 비디오를 함께 사용할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 프로젝트의 콜라주 섹션 전체에 사진과 비디오 클립을 모두 포함할 수 있습니다. Elori는 내보내기 과정에서 비디오가 사용된 부분은 비디오를 그대로 유지하고, 이미지로만 구성된 섹션은 스틸 이미지로 내보냅니다. 따라서 다양한 미디어를 혼합한 캐러셀 디자인을 만들 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori로 Instagram 캐러셀을 만들 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. Elori는 캐러셀 스타일 프로젝트를 위해 여러 섹션으로 구성된 캔버스를 사용합니다. 섹션을 추가, 복제, 삭제, 순서 변경하고, 전체 시퀀스를 미리 보고, 소셜 미디어 캐러셀로 게시할 수 있도록 섹션을 순서대로 내보낼 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "캐러셀 슬라이드는 몇 개까지 만들 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Elori는 최대 20개의 캐러셀 섹션으로 구성된 프로젝트를 지원합니다. 무료 버전은 최대 5개의 섹션을 지원하며, Elori Pro를 사용하면 더 많은 섹션을 사용할 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "콜라주를 저장하고 나중에 편집을 계속할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. Elori는 레이아웃, 미디어, 텍스트, 개체, 그림, 배경 및 레이어 순서를 포함하여 편집 가능한 프로젝트를 저장합니다. 저장된 프로젝트는 처음부터 다시 시작할 필요 없이 다시 열 수 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "프로젝트 또는 캐러셀 섹션을 복제할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 저장된 프로젝트 전체 또는 여러 섹션으로 구성된 디자인의 특정 섹션을 복제할 수 있습니다. 이 기능은 다양한 버전을 만들거나, 캐러셀 스타일을 일관되게 유지하거나, 원본을 변경하지 않고 새 버전을 테스트하는 데 유용합니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori에는 실행 취소 및 다시 실행 기능이 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 편집기에는 디자인 변경에 대한 실행 취소 및 다시 실행 기능이 있으며, 그림을 그리는 동안에도 별도의 실행 취소 기능이 지원됩니다. 레이아웃, 색상, 글꼴 및 장식 요소를 다양하게 실험해 보면서 콜라주를 만들어 보세요."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori는 사진 콜라주를 어떻게 내보내나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Elori는 스틸 콜라주의 각 섹션을 1440픽셀 너비로 렌더링한 다음, 완성된 이미지를 사진 보관함에 저장합니다. iOS 공유 시트를 사용하여 내보낸 파일을 보내거나 저장할 수도 있습니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori는 비디오 콜라주를 어떻게 내보내나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "비디오가 포함된 부분은 MP4 비디오 파일로 렌더링됩니다. Elori는 지원되는 비디오 타이밍, 클리핑, 회전, 테두리, 레이어 및 음소거 해제된 오디오를 유지합니다. 반면 비디오가 없는 부분은 정지 이미지로 유지됩니다."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori 콜라주를 다른 앱과 공유할 수 있나요?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "네. 내보내기 후 표준 iOS 공유 시트를 사용하여 콜라주를 기기에 설치된 호환 가능한 소셜 미디어, 메시징, 클라우드 저장소 및 편집 앱으로 보낼 수 있습니다."
+      }
+    }
+  ]
+}
+    </script>
   </head>
   <body class="policy-page faq-page">
+    <header class="gallery-header">
+      <a class="gallery-brand" href="/ko/" aria-label="Elori 홈">Elori</a>
+      <nav aria-label="주요 탐색">
+        <a class="header-app-link" href="https://apps.apple.com/us/app/elori-photo-carousel-maker/id6759309696" target="_blank" rel="noopener">앱 받기</a>
+      </nav>
+    </header>
     <main class="policy">
+      <nav class="faq-toc" aria-label="FAQ 섹션">
+        <a href="#subscriptions">구독</a>
+        <a href="#refunds">환불</a>
+        <a href="#support">지원</a>
+        <a href="#privacy-and-photos">개인정보 및 사진</a>
+        <a href="#photo-collage-creation">사진 콜라주 만들기</a>
+        <a href="#canvas-layouts-and-frames">레이아웃 및 프레임</a>
+        <a href="#text-stickers-and-drawing">텍스트, 스티커, 그림</a>
+        <a href="#photo-editing-and-layer-controls">사진 편집 컨트롤</a>
+        <a href="#video-collages-and-carousel-posts">비디오 및 캐러셀</a>
+        <a href="#saving-exporting-and-workflow">저장 및 내보내기</a>
+        <a href="#helpful-links">유용한 링크</a>
+      </nav>
       <div class="policy-text">
         <h1>FAQ</h1>
 
-        <h2>
-          <svg class="faq-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect width="20" height="14" x="2" y="5" rx="2"/>
-            <line x1="2" x2="22" y1="10" y2="10"/>
-          </svg>
+        <h2 id="subscriptions">
+          <i class="ph ph-credit-card faq-icon" aria-hidden="true"></i>
           <span>구독</span>
         </h2>
         <h3>구독을 관리하거나 취소하려면 어떻게 하나요?</h3>
         <p>Elori 구독은 Apple ID를 통해 관리됩니다. iPhone의 설정 앱을 열고, 상단의 내 이름을 탭한 다음 구독을 탭하세요. Elori를 선택하면 플랜을 보거나 변경하거나 취소할 수 있어요.</p>
-
         <h3>앱을 삭제하면 구독도 취소되나요?</h3>
         <p>아니요. 기기에서 Elori를 삭제해도 활성 구독은 취소되지 않아요. Apple ID 구독 설정에서 직접 취소해야 해요.</p>
-
         <h3>구매 내역을 복원하려면 어떻게 하나요?</h3>
         <p>원래 구매할 때 사용한 Apple ID로 로그인되어 있는지 확인한 후, Elori 앱 내에서 구매 복원 옵션을 사용하세요. 그래도 접근 권한이 업데이트되지 않으면 앱을 재시작하고 Apple ID 구독 상태를 확인해 보세요.</p>
 
-        <h2>
-          <svg class="faq-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/>
-            <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/>
-            <path d="M12 17.5v-11"/>
-          </svg>
+        <h2 id="refunds">
+          <i class="ph ph-receipt faq-icon" aria-hidden="true"></i>
           <span>환불</span>
         </h2>
         <h3>환불을 요청하려면 어떻게 하나요?</h3>
-        <p>App Store의 모든 구매 및 환불은 Apple에서 처리합니다. 환불을 요청하려면 <a href="https://reportaproblem.apple.com/" target="_blank" rel="noopener">reportaproblem.apple.com</a>에 접속해서 Apple ID로 로그인한 후 Elori를 선택하고 Apple의 환불 요청 절차를 따라 주세요.</p>
-
+        <p>App Store의 모든 구매 및 환불은 Apple에서 처리합니다. 환불을 요청하려면 <a href="https://reportaproblem.apple.com/" rel="noopener" target="_blank">reportaproblem.apple.com</a>에 접속해서 Apple ID로 로그인한 후 Elori를 선택하고 Apple의 환불 요청 절차를 따라 주세요.</p>
         <h3>Elori에서 직접 환불해 줄 수 있나요?</h3>
         <p>아니요. 결제는 Apple에서 처리하기 때문에 환불도 Apple을 통해 요청해야 해요. 어디로 가야 하는지 안내하거나 앱에 관한 질문에 답변하는 건 기꺼이 도와드릴 수 있지만, App Store 환불을 직접 승인하거나 처리할 수는 없어요.</p>
 
-        <h2>
-          <svg class="faq-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/>
-          </svg>
+        <h2 id="support">
+          <i class="ph ph-chat-circle faq-icon" aria-hidden="true"></i>
           <span>지원</span>
         </h2>
         <h3>Elori에 문의하려면 어떻게 하나요?</h3>
         <p><a href="mailto:tryelori.com@gmail.com">tryelori.com@gmail.com</a>으로 이메일을 보내 주세요. 더 빠르게 도와드릴 수 있도록 사용 중인 기기, iOS 버전, 그리고 어떤 일이 있었는지 간단히 설명해 주시면 좋아요.</p>
-
         <h3>구매 후 Pro 기능을 사용할 수 없다면 어떻게 해야 하나요?</h3>
         <p>먼저 Apple ID 구독에서 구매 또는 구독이 활성 상태인지 확인하세요.
           그런 다음 Elori를 다시 열고 앱 내에서 구매 복원을 시도해 보세요. 그래도
           작동하지 않으면 자세한 내용과 함께 저희에게 연락 주시면 문제 해결을 도와드리겠습니다.</p>
 
-        <h2>
-          <svg class="faq-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 13c0 5-3.5 7.5-7.7 8.9a1 1 0 0 1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.6 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1Z"/>
-          </svg>
+        <h2 id="privacy-and-photos">
+          <i class="ph ph-shield-check faq-icon" aria-hidden="true"></i>
           <span>개인정보 및 사진</span>
         </h2>
         <h3>Elori를 사용하려면 계정이 필요한가요?</h3>
         <p>아니요. Elori는 계정이나 로그인 없이 사용할 수 있어요.</p>
-
         <h3>Elori가 내 사진을 저장하나요?</h3>
         <p>Elori는 사진을 기기 내에서 처리하도록 설계되었어요. 저희는 사용자의 사진을
           서버에 저장, 호스팅하거나 보지 않습니다.</p>
 
-        <h2>
-          <svg class="faq-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10 13a5 5 0 0 0 7.1 0l2.8-2.8a5 5 0 0 0-7.1-7.1L11 4.9"/>
-            <path d="M14 11a5 5 0 0 0-7.1 0l-2.8 2.8a5 5 0 0 0 7.1 7.1L13 19.1"/>
-          </svg>
+        <h2 id="photo-collage-creation">
+          <i class="ph ph-image-square faq-icon" aria-hidden="true"></i>
+          <span>사진 콜라주 만들기</span>
+        </h2>
+        <h3>Elori는 iPhone용 사진 콜라주 제작 앱인가요?</h3>
+        <p>네. Elori는 iPhone용 사진 콜라주 제작 앱으로, 단일 이미지 콜라주, 여러 장의 사진으로 구성된 레이아웃, 스크랩북 스타일 디자인, 소셜 미디어 그래픽 등을 만들 수 있습니다. 템플릿을 사용하거나 직접 사진을 레이아웃에 배치한 후, 텍스트, 배경, 프레임, 스티커, 필터, 그리기 도구를 사용하여 디자인을 완성할 수 있습니다.</p>
+        <h3>Elori로 무엇을 만들 수 있나요?</h3>
+        <p>사진 콜라주, 무드 보드, 디지털 스크랩북, 여행 후기, 전후 디자인, 스토리 그래픽, 캐러셀 게시물, 사진 또는 비디오 합성 등을 만들 수 있습니다. Elori는 레이아웃 도구와 장식 개체, 타이포그래피, 배경, 미디어 컨트롤을 결합하여 빠른 콜라주 제작부터 정교한 시각 프로젝트까지 지원합니다.</p>
+        <h3>미리 만들어진 템플릿으로 콜라주를 만들 수 있나요?</h3>
+        <p>네. Elori에는 사용자가 미디어를 추가하기 전에 완성된 구조를 제공하는 템플릿 라이브러리가 포함되어 있습니다. 샘플 사진이나 비디오를 교체하고, 텍스트를 편집하고, 색상, 레이아웃, 프레임, 스티커, 배경을 사용자 지정하여 나만의 템플릿을 만들 수 있습니다.</p>
+        <h3>템플릿 없이 콜라주를 만들 수 있나요?</h3>
+        <p>네. 빈 레이아웃이나 간단한 레이아웃을 선택하고 직접 찍은 사진, 동영상, 텍스트, 그림, 장식 요소 등을 사용하여 디자인을 만들 수 있습니다. 미리 디자인된 스타일 대신 나만의 사진 콜라주를 만들고 싶을 때 유용합니다.</p>
+        <h3>어떤 콜라주 레이아웃을 사용할 수 있나요?</h3>
+        <p>Elori는 세로 및 가로 분할, 행, 열, 배너, 모자이크, 클래식 그리드, 하나의 큰 메인 이미지가 있는 레이아웃 등 다양한 사진 그리드 및 콜라주 레이아웃을 지원합니다. 간격과 모서리 곡률도 변경할 수 있습니다.</p>
+
+        <h2 id="canvas-layouts-and-frames">
+          <i class="ph ph-grid-four faq-icon" aria-hidden="true"></i>
+          <span>레이아웃 및 프레임</span>
+        </h2>
+        <h3>소셜 미디어 게시물에 사용할 수 있는 화면 비율은 무엇인가요?</h3>
+        <p>Elori는 1:1 정사각형, 3:4 세로, 4:5 세로, 4:3 가로, 9:16 스토리 캔버스를 제공합니다. 이러한 옵션을 통해 정사각형 게시물, 세로 피드 그래픽, 가로 콜라주, Instagram 스토리 및 기타 세로형 소셜 미디어 디자인을 더욱 쉽게 제작할 수 있습니다.</p>
+        <h3>사진 간격과 모서리 둥글기를 변경할 수 있나요?</h3>
+        <p>네. 사진 사이의 간격과 콜라주 슬롯의 모서리 곡률을 조정할 수 있습니다. 촘촘한 사진 그리드부터 모서리를 둥글게 처리하고 여백을 더 두어 부드러운 레이아웃까지 원하는 대로 만들 수 있습니다.</p>
+        <h3>사진을 다양한 모양 안에 넣을 수 있나요?</h3>
+        <p>네. 사진 슬롯에는 직사각형, 원, 타원, 하트, 별, 육각형, 마름모, 그리고 삼각형 모양을 사용할 수 있습니다. 모양이 있는 사진 프레임은 스크랩북 콜라주, 초대장, 무드 보드, 그리고 재미있는 소셜 미디어 게시물에 잘 어울립니다.</p>
+        <h3>콜라주에 장식 프레임을 추가할 수 있나요?</h3>
+        <p>네. Elori에는 디자인에 레이어링할 수 있는 장식 프레임이 포함되어 있으며, 사진이나 비디오 영역을 교체할 수 있는 프레임도 있습니다. 프레임 안에 미디어를 배치하고 주변 콜라주를 계속 편집하세요.</p>
+        <h3>제 사진이나 동영상을 배경으로 사용할 수 있나요?</h3>
+        <p>네. 캔버스 배경은 단색, Elori 라이브러리의 배경, 또는 본인의 사진이나 동영상으로 설정할 수 있습니다. 이를 통해 질감이 있는 배경, 브랜드 배경 또는 애니메이션 콜라주 배경을 쉽게 만들 수 있습니다.</p>
+
+        <h2 id="text-stickers-and-drawing">
+          <i class="ph ph-text-t faq-icon" aria-hidden="true"></i>
+          <span>텍스트, 스티커, 그림</span>
+        </h2>
+        <h3>사진 콜라주에 텍스트를 추가할 수 있나요?</h3>
+        <p>네. 캔버스 어디에든 텍스트를 추가한 다음, 문구, 글꼴, 크기, 색상, 배경색, 정렬, 회전 및 레이어 위치를 편집할 수 있습니다. 텍스트 도구는 제목, 캡션, 날짜, 인용구, 라벨 및 스크랩북 메모에 유용합니다.</p>
+        <h3>Elori에서 어떤 글꼴을 사용할 수 있나요?</h3>
+        <p>Elori에는 모던 산세리프, 엘레강트 세리프, 스크립트, 손글씨, 볼드 디스플레이 및 클래식 글꼴이 포함되어 있습니다. 사용 가능한 글꼴 패밀리에는 Inter, Montserrat, Poppins, Playfair Display, Cormorant Garamond, Caveat, Pacifico, Bebas Neue, Oswald, Georgia 등이 있습니다.</p>
+        <h3>곡선 또는 손으로 그린 ​​텍스트를 만들 수 있나요?</h3>
+        <p>네. 텍스트 경로 도구를 사용하면 그린 경로를 따라 텍스트 모양을 만들 수 있습니다. 곡선형 캡션, 원형 글자, 손글씨체, 장식용 스크랩북 타이포그래피 등에 활용해 보세요.</p>
+        <h3>Elori에 텍스트 위젯이 포함되어 있나요?</h3>
+        <p>네. 일반 텍스트 외에도 Elori는 채팅 말풍선, 위치 태그, 네 자리 숫자 카운터와 같은 스타일이 적용된 텍스트 요소를 지원합니다. 이러한 위젯은 콜라주에 소셜, 여행, 일기, 타임스탬프와 같은 세부 정보를 추가할 수 있습니다.</p>
+        <h3>스티커와 디자인 개체를 추가할 수 있나요?</h3>
+        <p>네. Elori의 개체 및 스티커 컬렉션을 둘러보고 캔버스에 항목을 추가한 다음, 크기 조정, 회전, 복제, 스타일 변경 또는 레이어 간 이동을 할 수 있습니다. 스티커 와 개체를 사용하면 간단한 사진 그리드를 디지털 스크랩북이나 테마 콜라주로 만들 수 있습니다.</p>
+        <h3>콜라주에 직접 그림을 그릴 수 있나요?</h3>
+        <p>네. 그린 그림은 편집 가능한 캔버스 레이어가 되어 이동, 크기 조정, 회전, 순서 변경 또는 삭제할 수 있습니다. 그리기 도구를 사용하여 손글씨, 화살표, 낙서 및 사용자 지정 요소를 추가할 수 있습니다.</p>
+
+        <h2 id="photo-editing-and-layer-controls">
+          <i class="ph ph-pencil-simple faq-icon" aria-hidden="true"></i>
+          <span>사진 편집 컨트롤</span>
+        </h2>
+        <h3>어떤 사진 편집 도구가 포함되어 있나요?</h3>
+        <p>Elori를 사용하면 콜라주 안의 사진을 자르고, 뒤집고, 회전하고, 바꾸고, 위치를 변경할 수 있습니다. 또한 필터와 텍스처를 적용하고, 사진 모양을 바꾸고, 테두리를 추가하고, 각 이미지가 제자리에 어떻게 배치되는지 조정할 수 있습니다.</p>
+        <h3>Elori는 어떤 사진 필터를 제공하나요?</h3>
+        <p>편집기에는 모노, 느와르, 크롬, 페이드, 인스턴트, 프로세스, 트랜스퍼, 세피아, 및 비네트 효과가 포함되어 있으며, 필터를 적용하지 않은 옵션도 제공됩니다. 흑백 콜라주, 빈티지 사진 편집, 필름에서 영감을 받은 디자인, 일관된 색상 처리 등에 활용해 보세요.</p>
+        <h3>테두리, 질감, 그림자를 추가할 수 있나요?</h3>
+        <p>네. 사진과 디자인 개체에 테두리와 질감을 적용할 수 있으며, 개체는 페이퍼, 소프트, 리프트, 드라마틱 그림자 스타일도 지원합니다. 이러한 컨트롤을 사용하여 종이를 오려낸 듯한 효과, 인쇄된 사진 효과, 또는 겹치는 레이어 사이의 분리 효과를 만들 수 있습니다.</p>
+        <h3>Elori로 사진의 배경을 제거할 수 있나요?</h3>
+        <p>네. 지원되는 스틸 이미지의 경우, Elori는 전경을 분리하고 기기에서 원본 배경을 제거할 수 있습니다. 잘라낸 부분을 다른 사진, 색상, 질감 또는 콜라주 레이아웃 위에 배치하세요. 결과는 피사체가 배경과 얼마나 명확하게 분리되는지에 따라 달라집니다.</p>
+        <h3>어떤 요소가 앞에 오거나 뒤에 오는지 제어할 수 있나요?</h3>
+        <p>네. 텍스트, 개체, 그림 및 템플릿 모양에 레이어 제어 기능이 제공됩니다. 요소를 앞뒤로, 앞으로 또는 뒤로 이동하여 겹치는 스크랩북 효과를 만들고 중요한 콘텐츠를 계속 표시할 수 있습니다.</p>
+        <h3>Elori는 캔버스에서 요소를 정렬하는 데 도움이 되나요?</h3>
+        <p>네. 중앙 안내선과 회전 스냅 기능을 사용하면 항목을 가로 또는 세로로 정렬할 수 있으며, 콜라주를 구성할 때 일반적인 회전 각도를 더 쉽게 사용할 수 있습니다.</p>
+
+        <h2 id="video-collages-and-carousel-posts">
+          <i class="ph ph-video-camera faq-icon" aria-hidden="true"></i>
+          <span>비디오 및 캐러셀</span>
+        </h2>
+        <h3>Elori 콜라주에 비디오를 추가할 수 있나요?</h3>
+        <p>네. Elori는 콜라주 슬롯, 프레임 자리 표시자, 독립형 개체, 및 배경에 비디오를 지원하므로 사진과 비디오 클립을 하나의 디자인으로 결합할 수 있습니다.</p>
+        <h3>비디오 클립을 자르거나 음소거할 수 있나요?</h3>
+        <p>네. 비디오 컨트롤에는 자르기, 커버 프레임 선택, 클립 음소거 또는 음소거 해제 기능이 포함되어 있습니다. 비디오의 어느 부분이 표시될지, 그리고 오디오가 내보낸 콜라주에 포함될지 여부를 제어할 수 있습니다.</p>
+        <h3>같은 프로젝트에 사진과 비디오를 함께 사용할 수 있나요?</h3>
+        <p>네. 프로젝트의 콜라주 섹션 전체에 사진과 비디오 클립을 모두 포함할 수 있습니다. Elori는 내보내기 과정에서 비디오가 사용된 부분은 비디오를 그대로 유지하고, 이미지로만 구성된 섹션은 스틸 이미지로 내보냅니다. 따라서 다양한 미디어를 혼합한 캐러셀 디자인을 만들 수 있습니다.</p>
+        <h3>Elori로 Instagram 캐러셀을 만들 수 있나요?</h3>
+        <p>네. Elori는 캐러셀 스타일 프로젝트를 위해 여러 섹션으로 구성된 캔버스를 사용합니다. 섹션을 추가, 복제, 삭제, 순서 변경하고, 전체 시퀀스를 미리 보고, 소셜 미디어 캐러셀로 게시할 수 있도록 섹션을 순서대로 내보낼 수 있습니다.</p>
+        <h3>캐러셀 슬라이드는 몇 개까지 만들 수 있나요?</h3>
+        <p>Elori는 최대 20개의 캐러셀 섹션으로 구성된 프로젝트를 지원합니다. 무료 버전은 최대 5개의 섹션을 지원하며, Elori Pro를 사용하면 더 많은 섹션을 사용할 수 있습니다.</p>
+
+        <h2 id="saving-exporting-and-workflow">
+          <i class="ph ph-download-simple faq-icon" aria-hidden="true"></i>
+          <span>저장 및 내보내기</span>
+        </h2>
+        <h3>콜라주를 저장하고 나중에 편집을 계속할 수 있나요?</h3>
+        <p>네. Elori는 레이아웃, 미디어, 텍스트, 개체, 그림, 배경 및 레이어 순서를 포함하여 편집 가능한 프로젝트를 저장합니다. 저장된 프로젝트는 처음부터 다시 시작할 필요 없이 다시 열 수 있습니다.</p>
+        <h3>프로젝트 또는 캐러셀 섹션을 복제할 수 있나요?</h3>
+        <p>네. 저장된 프로젝트 전체 또는 여러 섹션으로 구성된 디자인의 특정 섹션을 복제할 수 있습니다. 이 기능은 다양한 버전을 만들거나, 캐러셀 스타일을 일관되게 유지하거나, 원본을 변경하지 않고 새 버전을 테스트하는 데 유용합니다.</p>
+        <h3>Elori에는 실행 취소 및 다시 실행 기능이 있나요?</h3>
+        <p>네. 편집기에는 디자인 변경에 대한 실행 취소 및 다시 실행 기능이 있으며, 그림을 그리는 동안에도 별도의 실행 취소 기능이 지원됩니다. 레이아웃, 색상, 글꼴 및 장식 요소를 다양하게 실험해 보면서 콜라주를 만들어 보세요.</p>
+        <h3>Elori는 사진 콜라주를 어떻게 내보내나요?</h3>
+        <p>Elori는 스틸 콜라주의 각 섹션을 1440픽셀 너비로 렌더링한 다음, 완성된 이미지를 사진 보관함에 저장합니다. iOS 공유 시트를 사용하여 내보낸 파일을 보내거나 저장할 수도 있습니다.</p>
+        <h3>Elori는 비디오 콜라주를 어떻게 내보내나요?</h3>
+        <p>비디오가 포함된 부분은 MP4 비디오 파일로 렌더링됩니다. Elori는 지원되는 비디오 타이밍, 클리핑, 회전, 테두리, 레이어 및 음소거 해제된 오디오를 유지합니다. 반면 비디오가 없는 부분은 정지 이미지로 유지됩니다.</p>
+        <h3>Elori 콜라주를 다른 앱과 공유할 수 있나요?</h3>
+        <p>네. 내보내기 후 표준 iOS 공유 시트를 사용하여 콜라주를 기기에 설치된 호환 가능한 소셜 미디어, 메시징, 클라우드 저장소 및 편집 앱으로 보낼 수 있습니다.</p>
+
+        <h2 id="helpful-links">
+          <i class="ph ph-link faq-icon" aria-hidden="true"></i>
           <span>유용한 링크</span>
         </h2>
         <ul>
-          <li><a href="../">홈</a></li>
-          <li><a href="../privacy-policy/">개인정보 처리방침</a></li>
-          <li><a href="../terms-of-use/">이용약관</a></li>
-          <li><a href="https://reportaproblem.apple.com/" target="_blank" rel="noopener">Apple을 통해 환불 요청하기</a></li>
-        </ul>
+<li><a href="../">홈</a></li>
+<li><a href="../privacy-policy/">개인정보 처리방침</a></li>
+<li><a href="../terms-of-use/">이용약관</a></li>
+<li><a href="https://reportaproblem.apple.com/" rel="noopener" target="_blank">Apple을 통해 환불 요청하기</a></li>
+</ul>
       </div>
     </main>
+    <script src="../../assets/faq-toc.js"></script>
   </body>
 </html>

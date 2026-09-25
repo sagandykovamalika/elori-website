@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "faq:validate": "python3 scripts/validate-faq-locales.py",
     "gallery:build": "node scripts/build-gallery.mjs",
     "lingo:login": "lingo.dev login",
     "lingo:status": "lingo.dev status --verbose",
