@@ -248,6 +248,24 @@ a {
   padding-left: 0;
 }
 
+[dir="rtl"] .feature-list li + li {
+  background: linear-gradient(
+    to left,
+    transparent 46px,
+    rgba(236, 223, 204, 0.16) 46px
+  ) top / 100% 1px no-repeat;
+}
+
+[dir="rtl"] .use-case-grid article:nth-child(3n + 1) {
+  border-left: 1px solid rgba(236, 223, 204, 0.15);
+  padding-left: 28px;
+}
+
+[dir="rtl"] .use-case-grid article:nth-child(3n) {
+  border-left: 0;
+  padding-left: 0;
+}
+
 .use-case-icon {
   color: #ecdfcc;
   display: block;
@@ -599,6 +617,13 @@ a {
 
   .use-case-grid article:first-child {
     border-top: 0;
+  }
+
+  [dir="rtl"] .use-case-grid article,
+  [dir="rtl"] .use-case-grid article:nth-child(3n),
+  [dir="rtl"] .use-case-grid article:nth-child(3n + 1) {
+    border-left: 0;
+    padding: 24px 0;
   }
 
   .hero {
