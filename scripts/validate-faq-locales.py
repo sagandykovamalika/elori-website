@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-"""Validate localized FAQ structure, schema, links, and known bad artifacts."""
+"""Validate localized FAQ source files and known translation artifacts.
+
+This is a source-level check for the repository's checked-in static deployment
+files. Local links are verified against files in the checkout; external URLs,
+hosting redirects, and the live production deployment are outside its scope.
+"""
 
 from __future__ import annotations
 
@@ -52,10 +57,11 @@ def text_content(fragment: str) -> str:
     return " ".join(html.unescape(without_tags).split())
 
 
-def resolve_local(page: Path, raw: str) -> Path:
+def resolve_repository_target(page: Path, raw: str) -> Path:
     raw = raw.split("?", 1)[0]
     target = (ROOT / raw.lstrip("/")) if raw.startswith("/") else (page.parent / raw)
     target = target.resolve()
+    assert target.is_relative_to(ROOT), f"link escapes repository root: {raw}"
     if target.is_dir():
         target /= "index.html"
     return target
@@ -115,8 +121,8 @@ def validate(label: str, page: Path) -> None:
     for raw in re.findall(r'(?:href|src)="([^"]+)"', source):
         if raw.startswith(("http:", "https:", "mailto:", "#")):
             continue
-        target = resolve_local(page, raw)
-        assert target.exists(), f"{label}: broken local link {raw}"
+        target = resolve_repository_target(page, raw)
+        assert target.is_file(), f"{label}: missing repository link target {raw}"
 
 
 for locale, path in PAGES.items():

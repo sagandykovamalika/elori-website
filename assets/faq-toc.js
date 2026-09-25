@@ -1,20 +1,19 @@
 (() => {
-  const links = [...document.querySelectorAll(".faq-toc a")];
-  const sections = links
-    .map((link) => document.querySelector(link.getAttribute("href")))
-    .filter(Boolean);
+  const items = [...document.querySelectorAll(".faq-toc a")]
+    .map((link) => ({ link, section: document.getElementById(link.hash.slice(1)) }))
+    .filter(({ section }) => section);
 
-  if (!links.length || !sections.length) return;
+  if (!items.length) return;
 
   const setActiveSection = () => {
     const marker = Math.min(180, window.innerHeight * 0.3);
-    let activeSection = sections[0];
+    let activeSection = items[0].section;
 
-    for (const section of sections) {
+    for (const { section } of items) {
       if (section.getBoundingClientRect().top <= marker) activeSection = section;
     }
 
-    links.forEach((link) => {
+    items.forEach(({ link }) => {
       const isActive = link.hash === `#${activeSection.id}`;
       link.classList.toggle("is-active", isActive);
       if (isActive) link.setAttribute("aria-current", "location");
