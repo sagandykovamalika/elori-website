@@ -377,7 +377,7 @@ a {
   height: 56px;
   position: relative;
   transition: opacity 160ms ease, transform 160ms ease;
-  width: 168px;
+  width: auto;
 }
 
 .app-store:hover,
@@ -422,7 +422,7 @@ a {
 .app-store-badge {
   display: block;
   height: 100%;
-  width: 100%;
+  width: auto;
   border-radius: 12px;
 }
 
