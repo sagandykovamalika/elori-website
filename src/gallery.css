@@ -23,59 +23,11 @@ html {
   text-decoration: none;
 }
 
-.gallery-header,
 .gallery-footer,
 .gallery-main,
 .detail-main {
   width: min(1440px, 100%);
   margin-inline: auto;
-}
-
-.gallery-header {
-  align-items: center;
-  background: linear-gradient(
-    180deg,
-    rgba(24, 28, 20, 1) 0%,
-    rgba(24, 28, 20, 0) 100%
-  );
-  display: flex;
-  justify-content: space-between;
-  padding: 28px clamp(20px, 4vw, 64px);
-  position: sticky;
-  top: 0;
-  z-index: 20;
-}
-
-.gallery-brand {
-  font-family: "Metal", system-ui, sans-serif;
-  font-size: 2rem;
-  line-height: 1;
-  text-decoration: none;
-}
-
-.gallery-header nav {
-  align-items: center;
-  display: flex;
-  gap: 24px;
-}
-
-.gallery-header nav a {
-  color: var(--gallery-muted);
-  font-size: 0.88rem;
-  text-decoration: none;
-}
-
-.gallery-header nav a[aria-current="page"] {
-  color: var(--gallery-ink);
-}
-
-.gallery-header .header-app-link {
-  background: #ffffff;
-  border: 0;
-  border-radius: 999px;
-  color: #000000;
-  font-weight: 400;
-  padding: 10px 16px;
 }
 
 .gallery-main,
@@ -518,13 +470,6 @@ html {
 
 .collection-page .collection-header {
   background: linear-gradient(180deg, var(--collection-page-bg) 0%, transparent 100%);
-  left: 0;
-  max-width: none;
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 100%;
-  z-index: 20;
 }
 
 .collection-hero {
@@ -801,18 +746,6 @@ html {
 }
 
 @media (max-width: 720px) {
-  .gallery-header {
-    padding-block: 22px;
-  }
-
-  .gallery-header nav {
-    gap: 14px;
-  }
-
-  .gallery-header nav > a:first-child {
-    display: none;
-  }
-
   .gallery-main,
   .detail-main {
     padding-top: 26px;

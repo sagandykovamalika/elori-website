@@ -1,39 +1,21 @@
 (() => {
-  const hero = document.querySelector(".hero");
   const header = document.querySelector(".home-header");
+  const hero = document.querySelector(".hero");
+  if (!header || !hero) return;
 
-  if (!hero || !header) return;
-
-  const setHeaderVisibility = (isVisible) => {
-    header.classList.toggle("is-visible", isVisible);
-    header.setAttribute("aria-hidden", String(!isVisible));
-    header.toggleAttribute("inert", !isVisible);
+  const update = () => {
+    const visible = hero.getBoundingClientRect().bottom <= 0;
+    header.classList.toggle("is-visible", visible);
+    header.setAttribute("aria-hidden", String(!visible));
+    header.toggleAttribute("inert", !visible);
   };
 
   if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      ([entry]) => setHeaderVisibility(!entry.isIntersecting),
-      { threshold: 0 }
-    );
-
-    observer.observe(hero);
-    return;
+    new IntersectionObserver(update).observe(hero);
+  } else {
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
   }
-
-  let updatePending = false;
-
-  const updateFromScroll = () => {
-    setHeaderVisibility(hero.getBoundingClientRect().bottom <= 0);
-    updatePending = false;
-  };
-
-  const requestUpdate = () => {
-    if (updatePending) return;
-    updatePending = true;
-    window.requestAnimationFrame(updateFromScroll);
-  };
-
-  window.addEventListener("scroll", requestUpdate, { passive: true });
-  window.addEventListener("resize", requestUpdate);
-  updateFromScroll();
+  window.addEventListener("pageshow", update);
+  update();
 })();

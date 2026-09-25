@@ -296,7 +296,6 @@ function siteHeader(extraClass = '') {
   return `<header class="gallery-header${extraClass ? ` ${html(extraClass)}` : ''}">
       <a class="gallery-brand" href="/" aria-label="Elori home">Elori</a>
       <nav aria-label="Main navigation">
-        <a aria-current="page" href="/gallery/">Gallery</a>
         <a class="header-app-link" href="${APP_STORE_URL}" target="_blank" rel="noopener">Get the app</a>
       </nav>
     </header>`;
