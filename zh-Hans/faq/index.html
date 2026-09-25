@@ -1,87 +1,365 @@
 <!doctype html>
 <html lang="zh-Hans">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="apple-itunes-app" content="app-id=6759309696">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="apple-itunes-app" content="app-id=6759309696" />
     <title>Elori 常见问题</title>
-    <meta name="description" content="关于 Elori 订阅、退款、支持、隐私和应用访问的常见问题。">
-    <link rel="canonical" href="https://tryelori.com/zh-Hans/faq/">
-    <link rel="stylesheet" href="../../styles.css">
+    <meta name="description" content="Elori照片拼贴、模板、版式、文本、过滤器、视频旋转木马、出口、订阅、隐私和支持等," />
+    <link rel="canonical" href="https://tryelori.com/zh-Hans/faq/" />
+    <link rel="alternate" hreflang="x-default" href="https://tryelori.com/faq/" />
+    <link rel="alternate" hreflang="en" href="https://tryelori.com/faq/" />
+    <link rel="alternate" hreflang="ar" href="https://tryelori.com/ar/faq/" />
+    <link rel="alternate" hreflang="de" href="https://tryelori.com/de/faq/" />
+    <link rel="alternate" hreflang="es" href="https://tryelori.com/es/faq/" />
+    <link rel="alternate" hreflang="fr" href="https://tryelori.com/fr/faq/" />
+    <link rel="alternate" hreflang="ja" href="https://tryelori.com/ja/faq/" />
+    <link rel="alternate" hreflang="ko" href="https://tryelori.com/ko/faq/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://tryelori.com/pt-BR/faq/" />
+    <link rel="alternate" hreflang="ru" href="https://tryelori.com/ru/faq/" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://tryelori.com/zh-Hans/faq/" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css" />
+    <link rel="stylesheet" href="../../styles.css?v=faq-layout-7" />
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Elori是iPhone的摄影机吗?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "对 Elori是一台iPhone摄影拼贴机,用于建造单像拼贴机,\n多镜头布局,剪贴画风格的设计,以及社交媒体图形. 你当然可以\n以模板开始或以布局安排自己的照片,然后细化设计\n有文字、背景、框架、贴纸、过滤器和绘图工具。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "我能用现成的模板做拼图吗?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "对 Elori 包含一个模板库,旨在给您一个完成的结构\n在添加自己的媒体之前。 替换样本照片或视频,编辑文本,\n并自定义颜色、布局、框架、贴纸和背景\n模板。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "哪些方面的比例可以用于社交媒体文章?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "伊洛里包括1:1平方,3:4肖像,4:5肖像,4:3景观,9:16\n故事画布。 这些选项使得制作平面文章、肖像素材更加容易\n图形,景观拼贴,Instagram故事,以及其他垂直社交媒体设计."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "我能在照片拼贴上加个文字吗?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "对 在画布上添加文字,然后编辑文字、字体、大小、颜色,\n背景颜色、对齐、旋转和层位置。 文本工具有用\n标题、标题、日期、引文、标签和剪贴纸。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori提供哪些照片过滤器?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "编辑包括Mono,Noir, Chrome, Fade, Instant, Process, Transfer, Sepia,, 等.\n和 Vignette 效果,以及一个未过滤的选项。 黑白两边用\n拼贴,古装照片编辑,电影启发设计,以及一致的色彩处理."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori能从照片上删除背景吗?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "对 对于所支持的静态图像,Elori可以隔离前景并删除\n设备的原始背景 。 把剪辑放在另一张照片上,颜色,\n纹理,或拼接布局. 结果取决于该主题的分离程度\n从背景。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "我可以加入视频 在Elori拼图?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "对 Elori在拼贴槽,帧占位符,独立对象中支持视频,\n和背景,所以你可以结合 照片和视频剪辑在一个设计。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "我可以和Elori一起创作一个Instagram木马吗?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "对 Elori为旋转木马式项目使用多节帆布. 你可以说,\n复制、删除和重新排序区域,预览完整序列,并导出\n以发布为社交媒体的旋转木马。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "我能做多少木马滑板?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Elori支持最多20个木马段的项目。 免费版本支持\n最多可达5节,而Elori Pro解锁了更高的限制."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "我可以保存一个拼图,然后继续编辑吗?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "对 Elori 保存可编辑工程的布局, 介质, 文本, 对象, 绘图,\n环境 和层次顺序 您可以重开保存的工程, 而不是重新开始 。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori是如何导出相片拼接的?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Elori在1440像素宽处使一个静脉卷曲的每个部分,然后保存\n完成图像到您的 Photos 库 。 您也可以使用 iOS 共享工作表\n发送或保存导出的文件。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Elori是如何导出视频拼接的?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "包含视频的部分作为MP4视频文件提供. 伊罗里保留\n支持视频计时、剪辑、旋转、边框、图层和未变音,\n而没有视频的段落仍为图像。"
+      }
+    }
+  ]
+}
+    </script>
   </head>
   <body class="policy-page faq-page">
+    <header class="gallery-header">
+      <a class="gallery-brand" href="/zh-Hans/" aria-label="Elori 首页">Elori</a>
+      <nav aria-label="主导航">
+        <a class="header-app-link" href="https://apps.apple.com/us/app/elori-photo-carousel-maker/id6759309696" target="_blank" rel="noopener">获取 App</a>
+      </nav>
+    </header>
     <main class="policy">
+      <nav class="faq-toc" aria-label="常见问题部分">
+        <a href="#subscriptions">订阅</a>
+        <a href="#refunds">退款</a>
+        <a href="#support">支持</a>
+        <a href="#privacy-and-photos">隐私与照片</a>
+        <a href="#photo-collage-creation">图片拼贴创建</a>
+        <a href="#canvas-layouts-and-frames">布局和框架</a>
+        <a href="#text-stickers-and-drawing">文字、贴纸、绘图</a>
+        <a href="#photo-editing-and-layer-controls">图片编辑控制</a>
+        <a href="#video-collages-and-carousel-posts">视频和旋转木马</a>
+        <a href="#saving-exporting-and-workflow">保存和导出</a>
+        <a href="#helpful-links">实用链接</a>
+      </nav>
       <div class="policy-text">
         <h1>常见问题</h1>
 
-        <h2>
-          <svg class="faq-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect width="20" height="14" x="2" y="5" rx="2"/>
-            <line x1="2" x2="22" y1="10" y2="10"/>
-          </svg>
+        <h2 id="subscriptions">
+          <i class="ph ph-credit-card faq-icon" aria-hidden="true"></i>
           <span>订阅</span>
         </h2>
         <h3>如何管理或取消我的订阅？</h3>
         <p>Elori 订阅通过你的 Apple ID 管理。打开 iPhone 上的"设置"应用，轻点你的名字，轻点"订阅"，然后选择 Elori 来查看、更改或取消你的套餐。</p>
-
         <h3>删除应用会取消订阅吗？</h3>
         <p>不会。从设备中删除 Elori 不会取消有效订阅。你需要在 Apple ID 订阅设置中取消。</p>
-
         <h3>如何恢复购买？</h3>
         <p>确保你使用了当初购买时的同一 Apple ID 登录，然后在 Elori 中使用恢复购买选项。如果访问权限仍未更新，请重启应用并检查你的 Apple ID 订阅状态。</p>
 
-        <h2>
-          <svg class="faq-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z"/>
-            <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/>
-            <path d="M12 17.5v-11"/>
-          </svg>
+        <h2 id="refunds">
+          <i class="ph ph-receipt faq-icon" aria-hidden="true"></i>
           <span>退款</span>
         </h2>
         <h3>如何申请退款？</h3>
-        <p>Apple 处理所有 App Store 购买和退款。要申请退款，请访问 <a href="https://reportaproblem.apple.com/" target="_blank" rel="noopener">reportaproblem.apple.com</a>，使用你的 Apple ID 登录，选择 Elori，然后按照 Apple 的退款申请步骤操作。</p>
-
+        <p>Apple 处理所有 App Store 购买和退款。要申请退款，请访问 <a href="https://reportaproblem.apple.com/" rel="noopener" target="_blank">reportaproblem.apple.com</a>，使用你的 Apple ID 登录，选择 Elori，然后按照 Apple 的退款申请步骤操作。</p>
         <h3>Elori 可以直接退款吗？</h3>
         <p>不可以。因为账单由 Apple 处理，退款必须通过 Apple 申请。我们很乐意帮你了解去哪里操作或解答关于应用的问题，但我们无法自己批准或处理 App Store 退款。</p>
 
-        <h2>
-          <svg class="faq-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/>
-          </svg>
+        <h2 id="support">
+          <i class="ph ph-chat-circle faq-icon" aria-hidden="true"></i>
           <span>支持</span>
         </h2>
         <h3>如何联系 Elori？</h3>
         <p>请发送邮件至 <a href="mailto:tryelori.com@gmail.com">tryelori.com@gmail.com</a>。请附上你使用的设备、iOS 版本以及简短描述发生的情况，以便我们更快地帮助你。</p>
-
         <h3>购买后如果 Pro 功能不可用该怎么办？</h3>
         <p>首先，确认购买或订阅在你的 Apple ID 订阅中处于激活状态。然后重新打开 Elori，尝试在应用内恢复购买。如果仍然无法解决，请联系我们并提供详细信息，我们会帮助你排查问题。</p>
 
-        <h2>
-          <svg class="faq-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 13c0 5-3.5 7.5-7.7 8.9a1 1 0 0 1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.6 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1Z"/>
-          </svg>
+        <h2 id="privacy-and-photos">
+          <i class="ph ph-shield-check faq-icon" aria-hidden="true"></i>
           <span>隐私与照片</span>
         </h2>
         <h3>使用 Elori 需要注册账号吗？</h3>
         <p>不需要。Elori 无需注册或登录即可使用。</p>
-
         <h3>Elori 会存储我的照片吗？</h3>
         <p>Elori 会在你的设备上处理照片。我们不会在服务器上存储、托管或查看你的照片。</p>
 
-        <h2>
-          <svg class="faq-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M10 13a5 5 0 0 0 7.1 0l2.8-2.8a5 5 0 0 0-7.1-7.1L11 4.9"/>
-            <path d="M14 11a5 5 0 0 0-7.1 0l-2.8 2.8a5 5 0 0 0 7.1 7.1L13 19.1"/>
-          </svg>
+        <h2 id="photo-collage-creation">
+          <i class="ph ph-image-square faq-icon" aria-hidden="true"></i>
+          <span>图片拼贴创建</span>
+        </h2>
+        <h3>Elori是iPhone的摄影机吗?</h3>
+        <p>对 Elori是一台iPhone摄影拼贴机,用于建造单像拼贴机,
+多镜头布局,剪贴画风格的设计,以及社交媒体图形. 你当然可以
+以模板开始或以布局安排自己的照片,然后细化设计
+有文字、背景、框架、贴纸、过滤器和绘图工具。</p>
+        <h3>我能和Elori一起创造什么?</h3>
+        <p>您可以创建图片拼贴, 情绪板, 数字剪贴簿, 旅行简历,
+前后设计、故事图形、木马帖、照片或录像
+组成。 Elori将布局工具与装饰性对象,打字,
+对快速拼贴和详细视觉项目的背景和媒体控制。</p>
+        <h3>我能用现成的模板做拼图吗?</h3>
+        <p>对 Elori 包含一个模板库,旨在给您一个完成的结构
+在添加自己的媒体之前。 替换样本照片或视频,编辑文本,
+并自定义颜色、布局、框架、贴纸和背景
+模板。</p>
+        <h3>我能不使用模板来创建拼图吗?</h3>
+        <p>对 选择空白或简单的布局,并从自己的照片中构建设计,
+视频、文字、图纸和装饰元素。 这是有用的,当你想要一个
+自定义相片拼贴而非预先设计的样式。</p>
+        <h3>现有哪些拼图布局?</h3>
+        <p>Elori 支持图片网格和拼贴布局,包括垂直和水平
+分块、行、列、横幅、镶嵌、经典网格和布局
+{\fn黑体\fs22\bord1\shad0\3aHBE\4aH00\fscx67\fscy66\2cHFFFFFF\3cH808080}英雄形象 也可以改变间隔和角半径.</p>
+
+        <h2 id="canvas-layouts-and-frames">
+          <i class="ph ph-grid-four faq-icon" aria-hidden="true"></i>
+          <span>布局和框架</span>
+        </h2>
+        <h3>哪些方面的比例可以用于社交媒体文章?</h3>
+        <p>伊洛里包括1:1平方,3:4肖像,4:5肖像,4:3景观,9:16
+故事画布。 这些选项使得制作平面文章、肖像素材更加容易
+图形,景观拼贴,Instagram故事,以及其他垂直社交媒体设计.</p>
+        <h3>我能改变照片间隔和圆角吗?</h3>
+        <p>对 调整相片与拼贴槽角半径之间的空间.
+您可以创建从紧密的图片网格到更柔软的四舍五入的布局
+图像角和更多的呼吸室。</p>
+        <h3>照片可以放在不同的形状里吗?</h3>
+        <p>对 照片槽可以使用矩形,圆形,椭圆形,心形,恒星,六边形,菱形,
+还有三角形 剪贴簿拼贴的形状相框效果良好,
+请柬,情绪板, 和有趣的社会职位。</p>
+        <h3>我能在拼图上加装框吗?</h3>
+        <p>对 Elori 包括可分层构成设计的装饰框架,包括
+可替换图片或视频区域。 将您的媒体放置在框架之内
+继续编辑周围的拼图</p>
+        <h3>我可以用我自己的照片或视频作为背景吗?</h3>
+        <p>对 画布背景可以是坚固的颜色, 来自Elori的库的背景,
+您的图书馆照片或视频。 这使得创造精密,
+或动画拼音背景。</p>
+
+        <h2 id="text-stickers-and-drawing">
+          <i class="ph ph-text-t faq-icon" aria-hidden="true"></i>
+          <span>文字、贴纸、绘图</span>
+        </h2>
+        <h3>我能在照片拼贴上加个文字吗?</h3>
+        <p>对 在画布上添加文字,然后编辑文字、字体、大小、颜色,
+背景颜色、对齐、旋转和层位置。 文本工具有用
+标题、标题、日期、引文、标签和剪贴纸。</p>
+        <h3>伊洛里用什么字体?</h3>
+        <p>伊洛里包括现代桑斯塞里夫,优雅的塞里夫,剧本,笔迹,大胆的展示,
+和经典字体。 现有家庭包括Inter、蒙特塞拉特、Poppins、Playfair
+显示,科莫朗·加拉蒙德,卡维亚特,帕西科,贝巴斯·诺伊,奥斯瓦尔德,佐治亚州,以及更多.</p>
+        <h3>我可以做 曲线或手绘文本?</h3>
+        <p>对 文本路径工具允许您按照绘制的路径塑造文本。 用它来弯曲
+标题、圆形字母、手写构件和装饰
+剪辑本印刷。</p>
+        <h3>Elori 是否包含文本部件 ?</h3>
+        <p>对 除了纯文本外, Elori 支持聊天等有样式的文本元素
+气泡 定位标签 还有四位数计数器 这些部件增加了社交,旅行,
+和时间戳激励的细节 到拼贴。</p>
+        <h3>我能加贴纸和设计物品吗?</h3>
+        <p>对 浏览 Elori 的对象和标签收藏,在画布中添加一个项目,
+,然后调整大小、旋转、复制、重塑或移动到各层之间。 贴纸
+和物体可以将一个简单的图片网格变成数字剪贴簿或主题拼贴.</p>
+        <h3>我能直接用拼图画吗?</h3>
+        <p>对 你的画成为可编辑的画布层,可以移动,缩放,
+旋转、重排或删除。 手写标记、箭头、
+面条和口音</p>
+
+        <h2 id="photo-editing-and-layer-controls">
+          <i class="ph ph-pencil-simple faq-icon" aria-hidden="true"></i>
+          <span>图片编辑控制</span>
+        </h2>
+        <h3>包括哪些照片编辑工具?</h3>
+        <p>Elori让你裁剪,翻转,旋转,替换,并重新将照片放置在一个拼贴中.
+也可以应用过滤器和纹理,改变照片形状,添加边框,以及
+调整每个图像如何匹配其槽。</p>
+        <h3>Elori提供哪些照片过滤器?</h3>
+        <p>编辑包括Mono,Noir, Chrome, Fade, Instant, Process, Transfer, Sepia,, 等.
+和 Vignette 效果,以及一个未过滤的选项。 黑白两边用
+拼贴,古装照片编辑,电影启发设计,以及一致的色彩处理.</p>
+        <h3>我能加上边框、纹理和阴影吗?</h3>
+        <p>对 照片和设计对象可以使用边框和纹理,而对象也可以
+支持纸,软,提升,和戏剧阴影样式。 这些控件可以创建
+剪纸外观、印影效果或重叠层之间的分离。</p>
+        <h3>Elori能从照片上删除背景吗?</h3>
+        <p>对 对于所支持的静态图像,Elori可以隔离前景并删除
+设备的原始背景 。 把剪辑放在另一张照片上,颜色,
+纹理,或拼接布局. 结果取决于该主题的分离程度
+从背景。</p>
+        <h3>我能控制哪些元素出现在前面还是后面吗?</h3>
+        <p>对 层控件可用于文本、对象、绘图和模板形状。
+向前、向后或向后移动一个元素以建立重叠
+剪贴簿的效果和保持重要内容的可见性。</p>
+        <h3>Elori是否帮助调整画布上的元素?</h3>
+        <p>对 居中导线和旋转按键帮助水平对齐某个项目或
+垂直并使得在安排拼接时更容易使用常见的旋转角度.</p>
+
+        <h2 id="video-collages-and-carousel-posts">
+          <i class="ph ph-video-camera faq-icon" aria-hidden="true"></i>
+          <span>视频和旋转木马</span>
+        </h2>
+        <h3>我可以加入视频 在Elori拼图?</h3>
+        <p>对 Elori在拼贴槽,帧占位符,独立对象中支持视频,
+和背景,所以你可以结合 照片和视频剪辑在一个设计。</p>
+        <h3>我可以修剪或关闭视频剪辑?</h3>
+        <p>对 视频控制包括剪切、选择封面框、变形或
+解开剪辑。 控制视频的哪一部分出现及其音频是否
+包含在出口拼贴图中。</p>
+        <h3>我能把照片和视频混在一起吗?</h3>
+        <p>对 一个项目可以包含其拼贴部分的静态照片和视频片段.
+在导出期间, Elori 保存其使用的视频, 并输出仅图像的段落
+使混合媒体的旋转木马设计成为可能。</p>
+        <h3>我可以和Elori一起创作一个Instagram木马吗?</h3>
+        <p>对 Elori为旋转木马式项目使用多节帆布. 你可以说,
+复制、删除和重新排序区域,预览完整序列,并导出
+以发布为社交媒体的旋转木马。</p>
+        <h3>我能做多少木马滑板?</h3>
+        <p>Elori支持最多20个木马段的项目。 免费版本支持
+最多可达5节,而Elori Pro解锁了更高的限制.</p>
+
+        <h2 id="saving-exporting-and-workflow">
+          <i class="ph ph-download-simple faq-icon" aria-hidden="true"></i>
+          <span>保存和导出</span>
+        </h2>
+        <h3>我可以保存一个拼图,然后继续编辑吗?</h3>
+        <p>对 Elori 保存可编辑工程的布局, 介质, 文本, 对象, 绘图,
+环境 和层次顺序 您可以重开保存的工程, 而不是重新开始 。</p>
+        <h3>我可以复制一个项目或旋转木马部分吗?</h3>
+        <p>对 在多段设计中复制整个保存的工程或一节.
+这对于改变、保持一贯的旋转木马样式或
+测试新版本而不更改原版。</p>
+        <h3>Elori是否包括取消和重做?</h3>
+        <p>对 编辑器包括用于设计修改的撤销和重做, 单独撤销
+绘制时支持。 试验布局、颜色、类型和装饰
+在构建拼贴时元素。</p>
+        <h3>Elori是如何导出相片拼接的?</h3>
+        <p>Elori在1440像素宽处使一个静脉卷曲的每个部分,然后保存
+完成图像到您的 Photos 库 。 您也可以使用 iOS 共享工作表
+发送或保存导出的文件。</p>
+        <h3>Elori是如何导出视频拼接的?</h3>
+        <p>包含视频的部分作为MP4视频文件提供. 伊罗里保留
+支持视频计时、剪辑、旋转、边框、图层和未变音,
+而没有视频的段落仍为图像。</p>
+        <h3>我可以分享一个Elori拼贴 与其他应用程序?</h3>
+        <p>对 导出后,使用标准 iOS 共享工作表将拼贴表发送到
+在您的设备上安装了兼容的社会、信息、云存储和编辑应用程序。</p>
+
+        <h2 id="helpful-links">
+          <i class="ph ph-link faq-icon" aria-hidden="true"></i>
           <span>实用链接</span>
         </h2>
         <ul>
-          <li><a href="../">主页</a></li>
-          <li><a href="../privacy-policy/">隐私政策</a></li>
-          <li><a href="../terms-of-use/">使用条款</a></li>
-          <li><a href="https://reportaproblem.apple.com/" target="_blank" rel="noopener">通过 Apple 申请退款</a></li>
-        </ul>
+<li><a href="../">主页</a></li>
+<li><a href="../privacy-policy/">隐私政策</a></li>
+<li><a href="../terms-of-use/">使用条款</a></li>
+<li><a href="https://reportaproblem.apple.com/" rel="noopener" target="_blank">通过 Apple 申请退款</a></li>
+</ul>
       </div>
     </main>
+    <script src="../../assets/faq-toc.js"></script>
   </body>
 </html>
