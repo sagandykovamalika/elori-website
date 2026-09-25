@@ -10,7 +10,12 @@
     header.toggleAttribute("inert", !visible);
   };
 
-  new IntersectionObserver(update).observe(hero);
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(update).observe(hero);
+  } else {
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+  }
   window.addEventListener("pageshow", update);
   update();
 })();
