@@ -173,6 +173,20 @@ p,
   scroll-snap-align: start;
 }
 
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 326px), 1fr));
+  align-items: start;
+  gap: 24px;
+}
+
+.instagram-grid .instagram-media {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 540px;
+  margin: 0 auto !important;
+}
+
 .benefit-grid {
   display: grid;
   gap: 16px;
@@ -407,6 +421,10 @@ p,
 
 .subheader .brand {
   display: block;
+}
+
+.subheader .brand,
+#community-title .brand {
   color: #ecdfcc;
   font-family: "Metal", system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: 1.35em;
