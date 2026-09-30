@@ -431,6 +431,10 @@ p,
   line-height: 1;
 }
 
+#community-title .brand {
+  font-size: 1.15em;
+}
+
 .subheader .tagline {
   display: block;
   font-size: 0.64em;
