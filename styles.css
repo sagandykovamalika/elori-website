@@ -421,13 +421,13 @@ p,
 
 .subheader .brand {
   display: block;
+  font-size: 1.35em;
 }
 
 .subheader .brand,
 #community-title .brand {
   color: #ecdfcc;
   font-family: "Metal", system-ui, -apple-system, "Segoe UI", sans-serif;
-  font-size: 1.35em;
   line-height: 1;
 }
 
