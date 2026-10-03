@@ -257,6 +257,7 @@ function pageShell({ title, description, canonical, body, image = `${SITE_URL}/a
   return `<!doctype html>
 <html lang="en">
   <head>
+    <script src="/assets/openai-ads.js" defer></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="apple-itunes-app" content="app-id=6759309696" />
