@@ -283,6 +283,7 @@ ${imageConnectionHints}
     <link rel="preload" href="/assets/optimized/metal-latin.8587986530.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/gallery/gallery.css" />${structuredData}
+    <script src="/assets/webmcp.js" defer></script>
   </head>
   <body class="${html(bodyClass)}"${bodyStyle ? ` style="${html(bodyStyle)}"` : ''}>
     ${body}
