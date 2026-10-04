@@ -1,0 +1,19 @@
+[
+  {
+    "action": "set_cache_settings",
+    "description": "Cache content-hashed Elori assets for one year",
+    "enabled": true,
+    "expression": "(http.host eq \"tryelori.com\" and starts_with(http.request.uri.path, \"/assets/optimized/\"))",
+    "action_parameters": {
+      "cache": true,
+      "browser_ttl": { "mode": "override_origin", "default": 31536000 },
+      "edge_ttl": {
+        "mode": "override_origin",
+        "default": 31536000,
+        "status_code_ttl": [
+          { "status_code_range": { "from": 400, "to": 599 }, "value": -1 }
+        ]
+      }
+    }
+  }
+]

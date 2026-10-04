@@ -58,7 +58,7 @@ def text_content(fragment: str) -> str:
 
 
 def resolve_repository_target(page: Path, raw: str) -> Path:
-    raw = raw.split("?", 1)[0]
+    raw = raw.split("#", 1)[0].split("?", 1)[0]
     target = (ROOT / raw.lstrip("/")) if raw.startswith("/") else (page.parent / raw)
     target = target.resolve()
     assert target.is_relative_to(ROOT), f"link escapes repository root: {raw}"

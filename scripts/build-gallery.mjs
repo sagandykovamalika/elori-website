@@ -277,12 +277,10 @@ function pageShell({ title, description, canonical, body, image = `${SITE_URL}/a
     <meta name="twitter:description" content="${html(description)}" />
     <meta name="twitter:image" content="${html(image)}" />
 ${imageConnectionHints}
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Metal&amp;display=swap" />
     <link rel="icon" href="/assets/favicon.ico" sizes="any" />
     <link rel="icon" href="/assets/favicon.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="preload" href="/assets/optimized/metal-latin.8587986530.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/gallery/gallery.css" />${structuredData}
   </head>
