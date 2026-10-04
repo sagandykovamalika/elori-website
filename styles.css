@@ -1,4 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Metal&display=swap");
+@font-face {
+  font-family: "Metal";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/optimized/metal-latin.8587986530.woff2") format("woff2");
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  fill: currentColor;
+}
 
 :root {
   color-scheme: dark;
@@ -7,7 +21,7 @@
   --text: #f5f5f4;
   --muted: #a3a3a3;
   --muted-strong: #8a8a8a;
-  --link-muted: #6f6f6f;
+  --link-muted: #a3a3a3;
   --accent: #7dd3fc;
   --accent-strong: #38bdf8;
   --glow: rgba(56, 189, 248, 0.35);
@@ -176,15 +190,44 @@ p,
 .instagram-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 326px), 1fr));
-  align-items: start;
   gap: 24px;
 }
 
-.instagram-grid .instagram-media {
+.instagram-post {
+  height: 760px;
+  min-width: 0;
+  overflow: auto;
+  border-radius: 3px;
+  background: #fff;
+  color: #181c14;
+}
+
+.instagram-post blockquote {
+  margin: 0;
+}
+
+.instagram-post blockquote a {
+  display: block;
+  padding: 24px;
+}
+
+.instagram-post a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.instagram-post iframe.instagram-media {
   width: 100% !important;
   min-width: 0 !important;
   max-width: 540px;
   margin: 0 auto !important;
+}
+
+#community-title .brand {
+  color: #ecdfcc;
+  font-family: "Metal", system-ui, sans-serif;
+  font-size: 1.15em;
+  line-height: 1;
 }
 
 .benefit-grid {
@@ -214,7 +257,7 @@ p,
   margin-bottom: auto;
 }
 
-.card-mark i {
+.card-mark .icon {
   font-size: 3.5rem;
 }
 
@@ -424,15 +467,10 @@ p,
   font-size: 1.35em;
 }
 
-.subheader .brand,
-#community-title .brand {
+.subheader .brand {
   color: #ecdfcc;
   font-family: "Metal", system-ui, -apple-system, "Segoe UI", sans-serif;
   line-height: 1;
-}
-
-#community-title .brand {
-  font-size: 1.15em;
 }
 
 .subheader .tagline {
