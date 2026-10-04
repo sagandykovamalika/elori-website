@@ -285,6 +285,7 @@ ${imageConnectionHints}
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/gallery/gallery.css" />${structuredData}
+    <script src="/assets/webmcp.js" defer></script>
   </head>
   <body class="${html(bodyClass)}"${bodyStyle ? ` style="${html(bodyStyle)}"` : ''}>
     ${body}
