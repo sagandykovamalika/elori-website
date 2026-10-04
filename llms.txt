@@ -1,0 +1,18 @@
+# Elori
+
+> Elori is a scrapbook collage maker for iPhone and iPad. Create photo and video collages, mood boards, photo dumps, and social media posts with templates, stickers, filters, frames, and text.
+
+This website introduces the app, showcases its creative content, and provides help and policies. The links below point to the English pages.
+
+## Explore
+
+- [Home](https://tryelori.com/): App overview and features.
+- [Gallery](https://tryelori.com/gallery/): Browse collage templates and creative content available in Elori.
+- [FAQ](https://tryelori.com/faq/): Help with editing, exports, subscriptions, purchases, privacy, and support.
+- [App Store](https://apps.apple.com/us/app/elori-scrapbook-collage-maker/id6759309696): Download Elori for iPhone and iPad.
+
+## Optional
+
+- [Privacy policy](https://tryelori.com/privacy-policy/): Information about data collection and use.
+- [Terms of use](https://tryelori.com/terms-of-use/): Terms for using Elori.
+- [Sitemap](https://tryelori.com/sitemap.xml): Index of site pages, including individual gallery entries and localized pages.
