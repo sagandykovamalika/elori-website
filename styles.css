@@ -187,6 +187,49 @@ p,
   scroll-snap-align: start;
 }
 
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 326px), 1fr));
+  gap: 24px;
+}
+
+.instagram-post {
+  height: 760px;
+  min-width: 0;
+  overflow: auto;
+  border-radius: 3px;
+  background: #fff;
+  color: #181c14;
+}
+
+.instagram-post blockquote {
+  margin: 0;
+}
+
+.instagram-post blockquote a {
+  display: block;
+  padding: 24px;
+}
+
+.instagram-post a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.instagram-post iframe.instagram-media {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 540px;
+  margin: 0 auto !important;
+}
+
+#community-title .brand {
+  color: #ecdfcc;
+  font-family: "Metal", system-ui, sans-serif;
+  font-size: 1.15em;
+  line-height: 1;
+}
+
 .benefit-grid {
   display: grid;
   gap: 16px;
