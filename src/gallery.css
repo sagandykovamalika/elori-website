@@ -542,6 +542,51 @@ html {
   margin-top: 52px;
 }
 
+.collection-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px max(var(--gallery-gutter), calc((100vw - 1112px) / 2)) 16px;
+  margin: 0 calc(50% - 50vw) 12px;
+}
+
+.collection-tabs button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 0;
+  border-radius: 999px;
+  color: white;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  min-height: 34px;
+  padding: 5px 16px;
+}
+
+.collection-tabs button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.collection-tabs button[aria-selected="true"] {
+  background: white;
+  color: var(--gallery-bg);
+}
+
+.collection-tabs button:focus-visible,
+#collection-panel:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+#collection-panel [hidden] {
+  display: none;
+}
+
+.is-filtered .collection-content-section {
+  margin-top: 0;
+}
+
 .collection-item-grid {
   display: grid;
   gap: 28px 12px;
