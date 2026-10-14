@@ -645,6 +645,7 @@ function collectionPage(collection, items) {
         </div>
       </section>
       ${itemsMarkup}
+      ${showSectionHeadings ? '<script src="/assets/collection-tabs.js" defer></script>' : ''}
       <aside class="collection-cta"><h2>Use the complete ${html(collection.name)} collection in Elori.</h2><a class="use-template-button" href="${APP_STORE_URL}" target="_blank" rel="noopener">Open Elori on the App Store</a></aside>
     </main>${siteFooter()}`,
   });
