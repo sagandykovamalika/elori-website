@@ -1,0 +1,110 @@
+.duo-page {
+  width: min(1280px, 88%);
+  margin-inline: auto;
+}
+
+.duo-hero {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+  padding: 48px 0 0;
+  overflow: hidden;
+}
+
+.duo-hero h1 {
+  font-size: clamp(3rem, 6.5vw, 6.5rem);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+.duo-hero .cta-actions {
+  justify-content: flex-start;
+}
+
+.duo-page p {
+  line-height: 1.65;
+}
+
+.duo-visual {
+  position: relative;
+  align-self: end;
+  aspect-ratio: 1322 / 1050;
+}
+
+.duo-badge {
+  position: absolute;
+  top: -24px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border-radius: 999px;
+  background: #697565;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.2;
+  transform: rotate(6deg);
+}
+
+.duo-badge img {
+  width: 45px;
+  height: 45px;
+  transform: rotate(-6deg);
+}
+
+.duo-artwork {
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  -webkit-mask-image: linear-gradient(to right, #000 88%, transparent 100%), linear-gradient(to bottom, #000 58%, transparent 70%);
+  mask-image: linear-gradient(to right, #000 88%, transparent 100%), linear-gradient(to bottom, #000 58%, transparent 70%);
+}
+
+.duo-workspace {
+  border-top: 1px solid rgba(236, 223, 204, 0.14);
+}
+
+.duo-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  margin-top: 48px;
+}
+
+.duo-features h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0 0 12px;
+}
+
+.duo-features p {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.duo-footer {
+  justify-content: center;
+  padding: 24px 6vw 48px;
+}
+
+@media (max-width: 720px) {
+  .duo-hero, .duo-features {
+    grid-template-columns: 1fr;
+  }
+
+  .duo-hero {
+    padding: 32px 0 0;
+    gap: 40px;
+  }
+
+  .duo-visual {
+    width: 100%;
+    justify-self: center;
+  }
+}
