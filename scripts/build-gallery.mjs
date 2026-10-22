@@ -652,7 +652,7 @@ function collectionPage(collection, items) {
 }
 
 function sitemap(templates, categories, collections, contentItems = []) {
-  const staticPaths = ['/', '/gallery/', '/faq/', '/privacy-policy/', '/terms-of-use/'];
+  const staticPaths = ['/', '/iphone-duo/', '/gallery/', '/faq/', '/privacy-policy/', '/terms-of-use/'];
   const urls = [
     ...staticPaths.map((item) => ({ loc: `${SITE_URL}${item}` })),
     ...templates.map((template) => ({

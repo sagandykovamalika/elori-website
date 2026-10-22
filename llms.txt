@@ -8,6 +8,7 @@ This website introduces the app, showcases its creative content, and provides he
 
 - [Home](https://tryelori.com/): App overview and features.
 - [Gallery](https://tryelori.com/gallery/): Browse collage templates and creative content available in Elori.
+- [iPhone Duo](https://tryelori.com/iphone-duo/): Fold-aware editing and a side panel for stickers and frames.
 - [FAQ](https://tryelori.com/faq/): Help with editing, exports, subscriptions, purchases, privacy, and support.
 - [App Store](https://apps.apple.com/us/app/elori-scrapbook-collage-maker/id6759309696): Download Elori for iPhone and iPad.
 
